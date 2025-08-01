@@ -402,6 +402,447 @@ end
 function basename(__filename)
     @ccall basename(__filename::Ptr{Cchar})::Ptr{Cchar}
 end
+begin
+    "# Skipping MacroDefinition: __STD_TYPE typedef"
+end
+begin
+    "# Skipping MacroDefinition: __FSID_T_TYPE struct { int __val [ 2 ] ; }"
+end
+mutable struct _IO_marker
+end
+const __off_t = Clong
+const _IO_lock_t = Cvoid
+const __off64_t = Clong
+mutable struct _IO_codecvt
+end
+mutable struct _IO_wide_data
+end
+struct _IO_FILE
+    _flags::Cint
+    _IO_read_ptr::Ptr{Cchar}
+    _IO_read_end::Ptr{Cchar}
+    _IO_read_base::Ptr{Cchar}
+    _IO_write_base::Ptr{Cchar}
+    _IO_write_ptr::Ptr{Cchar}
+    _IO_write_end::Ptr{Cchar}
+    _IO_buf_base::Ptr{Cchar}
+    _IO_buf_end::Ptr{Cchar}
+    _IO_save_base::Ptr{Cchar}
+    _IO_backup_base::Ptr{Cchar}
+    _IO_save_end::Ptr{Cchar}
+    _markers::Ptr{_IO_marker}
+    _chain::Ptr{_IO_FILE}
+    _fileno::Cint
+    _flags2::Cint
+    _old_offset::__off_t
+    _cur_column::Cushort
+    _vtable_offset::Int8
+    _shortbuf::NTuple{1, Cchar}
+    _lock::Ptr{_IO_lock_t}
+    _offset::__off64_t
+    _codecvt::Ptr{_IO_codecvt}
+    _wide_data::Ptr{_IO_wide_data}
+    _freeres_list::Ptr{_IO_FILE}
+    _freeres_buf::Ptr{Cvoid}
+    __pad5::size_t
+    _mode::Cint
+    _unused2::NTuple{20, Cchar}
+end
+function __uflow(arg1)
+    @ccall __uflow(arg1::Ptr{FILE})::Cint
+end
+function __overflow(arg1, arg2)
+    @ccall __overflow(arg1::Ptr{FILE}, arg2::Cint)::Cint
+end
+const BUFSIZ = Cint(8192)
+const EOF = Cint(-1)
+const SEEK_SET = Cint(0)
+const SEEK_CUR = Cint(1)
+const SEEK_END = Cint(2)
+const SEEK_DATA = Cint(3)
+const SEEK_HOLE = Cint(4)
+const P_tmpdir = String("\"/tmp\"")
+const L_tmpnam = Cint(20)
+const TMP_MAX = Cint(238328)
+const FILENAME_MAX = Cint(4096)
+const L_ctermid = Cint(9)
+const L_cuserid = Cint(9)
+const FOPEN_MAX = Cint(16)
+const RENAME_NOREPLACE = Cint(1)
+const RENAME_EXCHANGE = Cint(2)
+const RENAME_WHITEOUT = Cint(4)
+function fclose(__stream)
+    @ccall fclose(__stream::Ptr{FILE})::Cint
+end
+const __u_char = Cuchar
+const __u_short = Cushort
+const __u_int = Cuint
+const __u_long = Culong
+const __int8_t = Int8
+const __uint8_t = Cuchar
+const __int16_t = Cshort
+const __uint16_t = Cushort
+const __int32_t = Cint
+const __uint32_t = Cuint
+const __int64_t = Clong
+const __uint64_t = Culong
+const __int_least8_t = __int8_t
+const __uint_least8_t = __uint8_t
+const __int_least16_t = __int16_t
+const __uint_least16_t = __uint16_t
+const __int_least32_t = __int32_t
+const __uint_least32_t = __uint32_t
+const __int_least64_t = __int64_t
+const __uint_least64_t = __uint64_t
+const __quad_t = Clong
+const __u_quad_t = Culong
+const __intmax_t = Clong
+const __uintmax_t = Culong
+const __dev_t = Culong
+const __uid_t = Cuint
+const __gid_t = Cuint
+const __ino_t = Culong
+const __ino64_t = Culong
+const __mode_t = Cuint
+const __nlink_t = Cuint
+const __pid_t = Cint
+mutable struct __fsid_t
+    __val::NTuple{2, Cint}
+    __fsid_t() = new()
+end
+const __clock_t = Clong
+const __rlim_t = Culong
+const __rlim64_t = Culong
+const __id_t = Cuint
+const __time_t = Clong
+const __useconds_t = Cuint
+const __suseconds_t = Clong
+const __suseconds64_t = Clong
+const __daddr_t = Cint
+const __key_t = Cint
+const __clockid_t = Cint
+const __timer_t = Ptr{Cvoid}
+const __blksize_t = Cint
+const __blkcnt_t = Clong
+const __blkcnt64_t = Clong
+const __fsblkcnt_t = Culong
+const __fsblkcnt64_t = Culong
+const __fsfilcnt_t = Culong
+const __fsfilcnt64_t = Culong
+const __fsword_t = Clong
+const __ssize_t = Clong
+const __syscall_slong_t = Clong
+const __syscall_ulong_t = Culong
+const __loff_t = __off64_t
+const __caddr_t = Ptr{Cchar}
+const __intptr_t = Clong
+const __socklen_t = Cuint
+const __sig_atomic_t = Cint
+struct var"union (unnamed at /usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h:16:3)"
+    data::NTuple{4, UInt8}
+end
+function Base.getproperty(x::Ptr{var"union (unnamed at /usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h:16:3)"}, f::Symbol)
+    f === :__wch && return Ptr{Cuint}(x + 0)
+    f === :__wchb && return Ptr{NTuple{4, Cchar}}(x + 0)
+    return getfield(x, f)
+end
+function Base.getproperty(x::var"union (unnamed at /usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h:16:3)", f::Symbol)
+    r = Ref{var"union (unnamed at /usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h:16:3)"}(x)
+    ptr = Base.unsafe_convert(Ptr{var"union (unnamed at /usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h:16:3)"}, r)
+    fptr = getproperty(ptr, f)
+    GC.@preserve r unsafe_load(fptr)
+end
+function Base.setproperty!(x::Ptr{var"union (unnamed at /usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h:16:3)"}, f::Symbol, v)
+    unsafe_store!(getproperty(x, f), v)
+end
+struct __mbstate_t
+    data::NTuple{8, UInt8}
+end
+function Base.getproperty(x::Ptr{__mbstate_t}, f::Symbol)
+    f === :__count && return Ptr{Cint}(x + 0)
+    f === :__value && return Ptr{var"union (unnamed at /usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h:16:3)"}(x + 4)
+    return getfield(x, f)
+end
+function Base.getproperty(x::__mbstate_t, f::Symbol)
+    r = Ref{__mbstate_t}(x)
+    ptr = Base.unsafe_convert(Ptr{__mbstate_t}, r)
+    fptr = getproperty(ptr, f)
+    GC.@preserve r unsafe_load(fptr)
+end
+function Base.setproperty!(x::Ptr{__mbstate_t}, f::Symbol, v)
+    unsafe_store!(getproperty(x, f), v)
+end
+mutable struct _G_fpos_t
+    __pos::__off_t
+    __state::__mbstate_t
+    _G_fpos_t() = new()
+end
+const __fpos_t = _G_fpos_t
+mutable struct _G_fpos64_t
+    __pos::__off64_t
+    __state::__mbstate_t
+    _G_fpos64_t() = new()
+end
+const __fpos64_t = _G_fpos64_t
+const __FILE = _IO_FILE
+const cookie_read_function_t = Cvoid
+const cookie_write_function_t = Cvoid
+const cookie_seek_function_t = Cvoid
+const cookie_close_function_t = Cvoid
+mutable struct _IO_cookie_io_functions_t
+    read::Ptr{cookie_read_function_t}
+    write::Ptr{cookie_write_function_t}
+    seek::Ptr{cookie_seek_function_t}
+    close::Ptr{cookie_close_function_t}
+    _IO_cookie_io_functions_t() = new()
+end
+const cookie_io_functions_t = _IO_cookie_io_functions_t
+const off_t = __off_t
+const off64_t = __off64_t
+const ssize_t = __ssize_t
+const fpos_t = __fpos_t
+const fpos64_t = __fpos64_t
+function remove(__filename)
+    @ccall remove(__filename::Ptr{Cchar})::Cint
+end
+function rename(__old, __new)
+    @ccall rename(__old::Ptr{Cchar}, __new::Ptr{Cchar})::Cint
+end
+function renameat(__oldfd, __old, __newfd, __new)
+    @ccall renameat(__oldfd::Cint, __old::Ptr{Cchar}, __newfd::Cint, __new::Ptr{Cchar})::Cint
+end
+function renameat2(__oldfd, __old, __newfd, __new, __flags)
+    @ccall renameat2(__oldfd::Cint, __old::Ptr{Cchar}, __newfd::Cint, __new::Ptr{Cchar}, __flags::Cuint)::Cint
+end
+function tmpfile()
+    @ccall tmpfile()::Ptr{FILE}
+end
+function tmpfile64()
+    @ccall tmpfile64()::Ptr{FILE}
+end
+function tmpnam(arg1)
+    @ccall tmpnam(arg1::Ptr{Cchar})::Ptr{Cchar}
+end
+function tmpnam_r(__s)
+    @ccall tmpnam_r(__s::Ptr{Cchar})::Ptr{Cchar}
+end
+function tempnam(__dir, __pfx)
+    @ccall tempnam(__dir::Ptr{Cchar}, __pfx::Ptr{Cchar})::Ptr{Cchar}
+end
+function fflush(__stream)
+    @ccall fflush(__stream::Ptr{FILE})::Cint
+end
+function fflush_unlocked(__stream)
+    @ccall fflush_unlocked(__stream::Ptr{FILE})::Cint
+end
+function fcloseall()
+    @ccall fcloseall()::Cint
+end
+function fopen(__filename, __modes)
+    @ccall fopen(__filename::Ptr{Cchar}, __modes::Ptr{Cchar})::Ptr{FILE}
+end
+function freopen(__filename, __modes, __stream)
+    @ccall freopen(__filename::Ptr{Cchar}, __modes::Ptr{Cchar}, __stream::Ptr{FILE})::Ptr{FILE}
+end
+function fopen64(__filename, __modes)
+    @ccall fopen64(__filename::Ptr{Cchar}, __modes::Ptr{Cchar})::Ptr{FILE}
+end
+function freopen64(__filename, __modes, __stream)
+    @ccall freopen64(__filename::Ptr{Cchar}, __modes::Ptr{Cchar}, __stream::Ptr{FILE})::Ptr{FILE}
+end
+function fdopen(__fd, __modes)
+    @ccall fdopen(__fd::Cint, __modes::Ptr{Cchar})::Ptr{FILE}
+end
+function fopencookie(__magic_cookie, __modes, __io_funcs)
+    @ccall fopencookie(__magic_cookie::Ptr{Cvoid}, __modes::Ptr{Cchar}, __io_funcs::cookie_io_functions_t)::Ptr{FILE}
+end
+function fmemopen(__s, __len, __modes)
+    @ccall fmemopen(__s::Ptr{Cvoid}, __len::size_t, __modes::Ptr{Cchar})::Ptr{FILE}
+end
+function open_memstream(__bufloc, __sizeloc)
+    @ccall open_memstream(__bufloc::Ptr{Ptr{Cchar}}, __sizeloc::Ptr{size_t})::Ptr{FILE}
+end
+function setbuf(__stream, __buf)
+    @ccall setbuf(__stream::Ptr{FILE}, __buf::Ptr{Cchar})::Cvoid
+end
+function setvbuf(__stream, __buf, __modes, __n)
+    @ccall setvbuf(__stream::Ptr{FILE}, __buf::Ptr{Cchar}, __modes::Cint, __n::size_t)::Cint
+end
+function setbuffer(__stream, __buf, __size)
+    @ccall setbuffer(__stream::Ptr{FILE}, __buf::Ptr{Cchar}, __size::size_t)::Cvoid
+end
+function setlinebuf(__stream)
+    @ccall setlinebuf(__stream::Ptr{FILE})::Cvoid
+end
+const _Float128 = Float64
+const _Float32 = Cfloat
+const _Float64 = Cdouble
+const _Float32x = Cdouble
+const _Float64x = Float64
+function fgetc(__stream)
+    @ccall fgetc(__stream::Ptr{FILE})::Cint
+end
+function getc(__stream)
+    @ccall getc(__stream::Ptr{FILE})::Cint
+end
+function getchar()
+    @ccall getchar()::Cint
+end
+function getc_unlocked(__stream)
+    @ccall getc_unlocked(__stream::Ptr{FILE})::Cint
+end
+function getchar_unlocked()
+    @ccall getchar_unlocked()::Cint
+end
+function fgetc_unlocked(__stream)
+    @ccall fgetc_unlocked(__stream::Ptr{FILE})::Cint
+end
+function fputc(__c, __stream)
+    @ccall fputc(__c::Cint, __stream::Ptr{FILE})::Cint
+end
+function putc(__c, __stream)
+    @ccall putc(__c::Cint, __stream::Ptr{FILE})::Cint
+end
+function putchar(__c)
+    @ccall putchar(__c::Cint)::Cint
+end
+function fputc_unlocked(__c, __stream)
+    @ccall fputc_unlocked(__c::Cint, __stream::Ptr{FILE})::Cint
+end
+function putc_unlocked(__c, __stream)
+    @ccall putc_unlocked(__c::Cint, __stream::Ptr{FILE})::Cint
+end
+function putchar_unlocked(__c)
+    @ccall putchar_unlocked(__c::Cint)::Cint
+end
+function getw(__stream)
+    @ccall getw(__stream::Ptr{FILE})::Cint
+end
+function putw(__w, __stream)
+    @ccall putw(__w::Cint, __stream::Ptr{FILE})::Cint
+end
+function fgets(__s, __n, __stream)
+    @ccall fgets(__s::Ptr{Cchar}, __n::Cint, __stream::Ptr{FILE})::Ptr{Cchar}
+end
+function fgets_unlocked(__s, __n, __stream)
+    @ccall fgets_unlocked(__s::Ptr{Cchar}, __n::Cint, __stream::Ptr{FILE})::Ptr{Cchar}
+end
+function __getdelim(__lineptr, __n, __delimiter, __stream)
+    @ccall __getdelim(__lineptr::Ptr{Ptr{Cchar}}, __n::Ptr{size_t}, __delimiter::Cint, __stream::Ptr{FILE})::__ssize_t
+end
+function getdelim(__lineptr, __n, __delimiter, __stream)
+    @ccall getdelim(__lineptr::Ptr{Ptr{Cchar}}, __n::Ptr{size_t}, __delimiter::Cint, __stream::Ptr{FILE})::__ssize_t
+end
+function getline(__lineptr, __n, __stream)
+    @ccall getline(__lineptr::Ptr{Ptr{Cchar}}, __n::Ptr{size_t}, __stream::Ptr{FILE})::__ssize_t
+end
+function fputs(__s, __stream)
+    @ccall fputs(__s::Ptr{Cchar}, __stream::Ptr{FILE})::Cint
+end
+function puts(__s)
+    @ccall puts(__s::Ptr{Cchar})::Cint
+end
+function ungetc(__c, __stream)
+    @ccall ungetc(__c::Cint, __stream::Ptr{FILE})::Cint
+end
+function fread(__ptr, __size, __n, __stream)
+    @ccall fread(__ptr::Ptr{Cvoid}, __size::Culong, __n::Culong, __stream::Ptr{FILE})::Culong
+end
+function fwrite(__ptr, __size, __n, __s)
+    @ccall fwrite(__ptr::Ptr{Cvoid}, __size::Culong, __n::Culong, __s::Ptr{FILE})::Culong
+end
+function fputs_unlocked(__s, __stream)
+    @ccall fputs_unlocked(__s::Ptr{Cchar}, __stream::Ptr{FILE})::Cint
+end
+function fread_unlocked(__ptr, __size, __n, __stream)
+    @ccall fread_unlocked(__ptr::Ptr{Cvoid}, __size::size_t, __n::size_t, __stream::Ptr{FILE})::size_t
+end
+function fwrite_unlocked(__ptr, __size, __n, __stream)
+    @ccall fwrite_unlocked(__ptr::Ptr{Cvoid}, __size::size_t, __n::size_t, __stream::Ptr{FILE})::size_t
+end
+function fseek(__stream, __off, __whence)
+    @ccall fseek(__stream::Ptr{FILE}, __off::Clong, __whence::Cint)::Cint
+end
+function ftell(__stream)
+    @ccall ftell(__stream::Ptr{FILE})::Clong
+end
+function rewind(__stream)
+    @ccall rewind(__stream::Ptr{FILE})::Cvoid
+end
+function fseeko(__stream, __off, __whence)
+    @ccall fseeko(__stream::Ptr{FILE}, __off::__off_t, __whence::Cint)::Cint
+end
+function ftello(__stream)
+    @ccall ftello(__stream::Ptr{FILE})::__off_t
+end
+function fgetpos(__stream, __pos)
+    @ccall fgetpos(__stream::Ptr{FILE}, __pos::Ptr{fpos_t})::Cint
+end
+function fsetpos(__stream, __pos)
+    @ccall fsetpos(__stream::Ptr{FILE}, __pos::Ptr{fpos_t})::Cint
+end
+function fseeko64(__stream, __off, __whence)
+    @ccall fseeko64(__stream::Ptr{FILE}, __off::__off64_t, __whence::Cint)::Cint
+end
+function ftello64(__stream)
+    @ccall ftello64(__stream::Ptr{FILE})::__off64_t
+end
+function fgetpos64(__stream, __pos)
+    @ccall fgetpos64(__stream::Ptr{FILE}, __pos::Ptr{fpos64_t})::Cint
+end
+function fsetpos64(__stream, __pos)
+    @ccall fsetpos64(__stream::Ptr{FILE}, __pos::Ptr{fpos64_t})::Cint
+end
+function clearerr(__stream)
+    @ccall clearerr(__stream::Ptr{FILE})::Cvoid
+end
+function feof(__stream)
+    @ccall feof(__stream::Ptr{FILE})::Cint
+end
+function ferror(__stream)
+    @ccall ferror(__stream::Ptr{FILE})::Cint
+end
+function clearerr_unlocked(__stream)
+    @ccall clearerr_unlocked(__stream::Ptr{FILE})::Cvoid
+end
+function feof_unlocked(__stream)
+    @ccall feof_unlocked(__stream::Ptr{FILE})::Cint
+end
+function ferror_unlocked(__stream)
+    @ccall ferror_unlocked(__stream::Ptr{FILE})::Cint
+end
+function perror(__s)
+    @ccall perror(__s::Ptr{Cchar})::Cvoid
+end
+function fileno(__stream)
+    @ccall fileno(__stream::Ptr{FILE})::Cint
+end
+function fileno_unlocked(__stream)
+    @ccall fileno_unlocked(__stream::Ptr{FILE})::Cint
+end
+function pclose(__stream)
+    @ccall pclose(__stream::Ptr{FILE})::Cint
+end
+function popen(__command, __modes)
+    @ccall popen(__command::Ptr{Cchar}, __modes::Ptr{Cchar})::Ptr{FILE}
+end
+function ctermid(__s)
+    @ccall ctermid(__s::Ptr{Cchar})::Ptr{Cchar}
+end
+function cuserid(__s)
+    @ccall cuserid(__s::Ptr{Cchar})::Ptr{Cchar}
+end
+mutable struct obstack
+end
+function flockfile(__stream)
+    @ccall flockfile(__stream::Ptr{FILE})::Cvoid
+end
+function ftrylockfile(__stream)
+    @ccall ftrylockfile(__stream::Ptr{FILE})::Cint
+end
+function funlockfile(__stream)
+    @ccall funlockfile(__stream::Ptr{FILE})::Cvoid
+end
 const MB_LEN_MAX = Cint(16)
 const CHAR_BIT = Cint(8)
 const SCHAR_MAX = Cint(127)
@@ -502,31 +943,22 @@ function __ctype_get_mb_cur_max()
     @ccall __ctype_get_mb_cur_max()::size_t
 end
 const MB_CUR_MAX = Culong(1)
-begin
-    "# Skipping MacroDefinition: __STD_TYPE typedef"
-end
-begin
-    "# Skipping MacroDefinition: __FSID_T_TYPE struct { int __val [ 2 ] ; }"
-end
 const LITTLE_ENDIAN = Cint(1234)
 const BIG_ENDIAN = Cint(4321)
 const PDP_ENDIAN = Cint(3412)
 const BYTE_ORDER = Cint(1234)
-const __uint16_t = Cushort
 function __bswap_16(__bsx)
     @ccall __bswap_16(__bsx::__uint16_t)::__uint16_t
 end
 function __uint16_identity(__x)
     @ccall __uint16_identity(__x::__uint16_t)::__uint16_t
 end
-const __uint32_t = Cuint
 function __bswap_32(__bsx)
     @ccall __bswap_32(__bsx::__uint32_t)::__uint32_t
 end
 function __uint32_identity(__x)
     @ccall __uint32_identity(__x::__uint32_t)::__uint32_t
 end
-const __uint64_t = Culong
 function __bswap_64(__bsx)
     @ccall __bswap_64(__bsx::__uint64_t)::__uint64_t
 end
@@ -546,11 +978,6 @@ end
 const FD_SETSIZE = Cint(1024)
 const NFDBITS = Cint(64)
 const wchar_t = Cuint
-const _Float128 = Float64
-const _Float32 = Cfloat
-const _Float64 = Cdouble
-const _Float32x = Cdouble
-const _Float64x = Float64
 mutable struct div_t
     quot::Cint
     rem::Cint
@@ -686,69 +1113,6 @@ end
 function a64l(__s)
     @ccall a64l(__s::Ptr{Cchar})::Clong
 end
-const __u_char = Cuchar
-const __u_short = Cushort
-const __u_int = Cuint
-const __u_long = Culong
-const __int8_t = Int8
-const __uint8_t = Cuchar
-const __int16_t = Cshort
-const __int32_t = Cint
-const __int64_t = Clong
-const __int_least8_t = __int8_t
-const __uint_least8_t = __uint8_t
-const __int_least16_t = __int16_t
-const __uint_least16_t = __uint16_t
-const __int_least32_t = __int32_t
-const __uint_least32_t = __uint32_t
-const __int_least64_t = __int64_t
-const __uint_least64_t = __uint64_t
-const __quad_t = Clong
-const __u_quad_t = Culong
-const __intmax_t = Clong
-const __uintmax_t = Culong
-const __dev_t = Culong
-const __uid_t = Cuint
-const __gid_t = Cuint
-const __ino_t = Culong
-const __ino64_t = Culong
-const __mode_t = Cuint
-const __nlink_t = Cuint
-const __off_t = Clong
-const __off64_t = Clong
-const __pid_t = Cint
-mutable struct __fsid_t
-    __val::NTuple{2, Cint}
-    __fsid_t() = new()
-end
-const __clock_t = Clong
-const __rlim_t = Culong
-const __rlim64_t = Culong
-const __id_t = Cuint
-const __time_t = Clong
-const __useconds_t = Cuint
-const __suseconds_t = Clong
-const __suseconds64_t = Clong
-const __daddr_t = Cint
-const __key_t = Cint
-const __clockid_t = Cint
-const __timer_t = Ptr{Cvoid}
-const __blksize_t = Cint
-const __blkcnt_t = Clong
-const __blkcnt64_t = Clong
-const __fsblkcnt_t = Culong
-const __fsblkcnt64_t = Culong
-const __fsfilcnt_t = Culong
-const __fsfilcnt64_t = Culong
-const __fsword_t = Clong
-const __ssize_t = Clong
-const __syscall_slong_t = Clong
-const __syscall_ulong_t = Culong
-const __loff_t = __off64_t
-const __caddr_t = Ptr{Cchar}
-const __intptr_t = Clong
-const __socklen_t = Cuint
-const __sig_atomic_t = Cint
 const u_char = __u_char
 const u_short = __u_short
 const u_int = __u_int
@@ -764,11 +1128,8 @@ const gid_t = __gid_t
 const mode_t = __mode_t
 const nlink_t = __nlink_t
 const uid_t = __uid_t
-const off_t = __off_t
-const off64_t = __off64_t
 const pid_t = __pid_t
 const id_t = __id_t
-const ssize_t = __ssize_t
 const daddr_t = __daddr_t
 const caddr_t = __caddr_t
 const key_t = __key_t
@@ -2823,9 +3184,6 @@ const R_OK = Cint(4)
 const W_OK = Cint(2)
 const X_OK = Cint(1)
 const F_OK = Cint(0)
-const SEEK_SET = Cint(0)
-const SEEK_CUR = Cint(1)
-const SEEK_END = Cint(2)
 const F_ULOCK = Cint(0)
 const F_LOCK = Cint(1)
 const F_TLOCK = Cint(2)
@@ -3156,8 +3514,6 @@ end
 const STDIN_FILENO = Cint(0)
 const STDOUT_FILENO = Cint(1)
 const STDERR_FILENO = Cint(2)
-const SEEK_DATA = Cint(3)
-const SEEK_HOLE = Cint(4)
 const L_SET = Cint(0)
 const L_INCR = Cint(1)
 const L_XTND = Cint(2)
@@ -5904,4 +6260,4 @@ mutable struct var"struct (unnamed at /usr/include/aarch64-linux-gnu/bits/atomic
     __high::Cuint
     var"struct (unnamed at /usr/include/aarch64-linux-gnu/bits/atomic_wide_counter.h:28:3)"() = new()
 end
-constants = Dict(56 => [:EBADRQC, :S_IRWXG, :_SC_PII_INTERNET, :SO_INCOMING_NAPI_ID, :SYS_openat], 35 => [:EDEADLK, :EDEADLOCK, :_SC_TIMER_MAX, :PF_PHONET, :AF_PHONET, :SO_TIMESTAMPNS_OLD, :SO_TIMESTAMPNS, :SCM_TIMESTAMPNS, :SYS_unlinkat], 1107 => [:_CS_XBS5_ILP32_OFFBIG_LINTFLAGS], 1144 => [:_CS_POSIX_V7_LPBIG_OFFBIG_CFLAGS], 425 => [:SYS_io_uring_setup], 1033 => [:F_ADD_SEALS], 60 => [:ENOSTR, :_SC_UIO_MAXIOV, :_SC_IOV_MAX, :SO_ZEROCOPY, :SYS_quotactl], 220 => [:SYS_clone], 429 => [:SYS_move_mount], 1074025526 => [:TIOCSIG], 21530 => [:TIOCSSOFTCAR], 67 => [:ENOLINK, :_SC_THREADS, :SO_SNDTIMEO_NEW, :SYS_pread64], 4321 => [:BIG_ENDIAN], -5 => [:SI_SIGIO], 215 => [:SYS_munmap], 73 => [:EDOTDOT, :_SC_THREAD_DESTRUCTOR_ITERATIONS, :SO_RESERVE_MEM, :SYS_ppoll], 21531 => [:FIONREAD, :TIOCINQ], 35185 => [:SIOCSIFMAP], 115 => [:EINPROGRESS, :_SC_UCHAR_MAX, :SYS_clock_nanosleep], 35107 => [:SIOCSIFNAME], 112 => [:EHOSTDOWN, :_SC_SCHAR_MIN, :SYS_clock_settime], 185 => [:_SC_LEVEL1_ICACHE_SIZE, :SYS_mq_getsetattr], 1123 => [:_CS_POSIX_V6_ILP32_OFFBIG_LINTFLAGS], 268435456 => [:CLONE_NEWUSER, :EPOLLEXCLUSIVE, :SA_RESTART], 86 => [:ESTRPIPE, :_SC_AVPHYS_PAGES, :SYS_timerfd_settime], 168 => [:_SC_2_PBS, :SYS_getcpu], 431 => [:SYS_fsconfig], 263 => [:SOL_PACKET, :SYS_fanotify_mark], 9223372036854775807 => [:LONG_MAX, :LLONG_MAX, :LONG_LONG_MAX, :SSIZE_MAX, :INT64_MAX, :INT_LEAST64_MAX, :INT_FAST16_MAX, :INT_FAST32_MAX, :INT_FAST64_MAX, :INTPTR_MAX, :INTMAX_MAX, :PTRDIFF_MAX], 207 => [:SYS_recvfrom], 242 => [:_SC_TRACE_EVENT_NAME_MAX, :SYS_accept4], 183 => [:_SC_TRACE_INHERIT, :SYS_mq_timedreceive], 2147767346 => [:TIOCGDEV], 224 => [:SYS_swapon], 1037 => [:F_GET_FILE_RW_HINT], 1131 => [:_CS_POSIX_V6_LPBIG_OFFBIG_LINTFLAGS], 177 => [:_SC_V6_ILP32_OFFBIG, :SYS_getegid], 430 => [:SYS_fsopen], 12 => [:ENOMEM, :N_SMSBLOCK, :VREPRINT, :B4800, :_PC_SOCK_MAXBUF, :_SC_ASYNCHRONOUS_IO, :PF_DECnet, :AF_DECnet, :SO_PRIORITY, :SIGUSR2, :SYS_llistxattr], 536870912 => [:CLONE_NEWPID, :EPOLLWAKEUP, :MSG_FASTOPEN, :SA_INTERRUPT], 35125 => [:SIOCGIFPFLAGS], 75 => [:EOVERFLOW, :_SC_THREAD_STACK_MIN, :SO_RCVMARK, :SYS_vmsplice], -32768 => [:SHRT_MIN, :INT16_MIN, :INT_LEAST16_MIN], 4096 => [:PATH_MAX, :PIPE_BUF, :NL_ARGMAX, :CLONE_PIDFD, :ADJ_MICRO, :MOD_MICRO, :STA_CLOCKERR, :IXOFF, :TAB2, :CBAUDEX, :FLUSHO, :O_DSYNC, :AT_EMPTY_PATH, :S_IFIFO, :POLLREMOVE, :STATX_MNT_ID, :STATX_ATTR_AUTOMOUNT, :SOMAXCONN, :MSG_RST, :IFF_MULTICAST], 23 => [:ENFILE, :CWERASE, :_SC_AIO_LISTIO_MAX, :PF_IRDA, :AF_IRDA, :SO_SECURITY_ENCRYPTION_TRANSPORT, :SIGURG, :SYS_dup], 111 => [:ECONNREFUSED, :_SC_SCHAR_MAX, :SYS_timer_delete], 35091 => [:SIOCGIFFLAGS], 35184 => [:SIOCGIFMAP], 11554 => [:TTYDEF_IFLAG], 41 => [:_SC_EQUIV_CLASS_MAX, :PF_KCM, :AF_KCM, :SO_WIFI_STATUS, :SCM_WIFI_STATUS, :SYS_pivot_root], 264 => [:SOL_ATM, :SYS_name_to_handle_at], 68 => [:EADV, :_SC_THREAD_SAFE_FUNCTIONS, :SO_DETACH_REUSEPORT_BPF, :SYS_pwrite64], 1412850501 => [:ZA_MAGIC], 82 => [:ELIBMAX, :_SC_THREAD_PROCESS_SHARED, :SYS_fsync], -2 => [:SI_TIMER], 130 => [:EOWNERDEAD, :_SC_XOPEN_REALTIME, :SYS_tkill], 125 => [:ECANCELED, :_SC_XBS5_ILP32_OFF32, :SYS_sched_get_priority_max], 4109 => [:B3000000], 77 => [:EBADFD, :_SC_THREAD_ATTR_STACKADDR, :SYS_tee], 1002 => [:_CS_LFS_LIBS], 1113 => [:_CS_XBS5_LPBIG_OFFBIG_LDFLAGS], 172 => [:_SC_2_PBS_TRACK, :SYS_getpid], 71 => [:EPROTO, :_SC_LOGIN_NAME_MAX, :SO_NETNS_COOKIE, :SYS_sendfile], 35104 => [:SIOCSIFMEM], 66 => [:EREMOTE, :_SC_T_IOV_MAX, :SO_RCVTIMEO_NEW, :SYS_writev], 49152 => [:S_IFSOCK], 103 => [:ECONNABORTED, :_SC_CHAR_MIN, :SYS_setitimer], 1036 => [:F_SET_RW_HINT], 59 => [:EBFONT, :_SC_SELECT, :SO_PEERGROUPS, :SYS_pipe2], 280 => [:SOL_NFC, :SYS_bpf], 208 => [:SYS_setsockopt], 1109 => [:_CS_XBS5_LP64_OFF64_LDFLAGS], 35355 => [:TTYDEF_LFLAG], 26 => [:ETXTBSY, :CSUSP, :_SC_DELAYTIMER_MAX, :PF_LLC, :AF_LLC, :SO_ATTACH_FILTER, :SO_GET_FILTER, :SIGVTALRM, :SYS_inotify_init1], 211 => [:SYS_sendmsg], 127 => [:EKEYEXPIRED, :SCHAR_MAX, :CERASE, :INT8_MAX, :INT_LEAST8_MAX, :INT_FAST8_MAX, :_SC_XBS5_LP64_OFF64, :SYS_sched_rr_get_interval], 116 => [:ESTALE, :_SC_UINT_MAX, :SYS_syslog], 100 => [:ENETDOWN, :_SC_XOPEN_XPG4, :SYS_get_robust_list], 21559 => [:TIOCVHANGUP], 35113 => [:SIOCGIFSLAVE], 79 => [:ELIBACC, :_SC_THREAD_PRIORITY_SCHEDULING, :SYS_newfstatat], 1102 => [:_CS_XBS5_ILP32_OFF32_LIBS], 1105 => [:_CS_XBS5_ILP32_OFFBIG_LDFLAGS], 279 => [:SOL_ALG, :SYS_memfd_create], 1073741824 => [:SCHED_RESET_ON_FORK, :CLONE_NEWNET, :IOC_IN, :CMSPAR, :EPOLLONESHOT, :MSG_CMSG_CLOEXEC, :SA_NODEFER, :SA_NOMASK], 195 => [:_SC_LEVEL3_CACHE_ASSOC, :SYS_shmctl], 230 => [:SYS_mlockall], 141 => [:_SC_DEVICE_SPECIFIC, :SYS_getpriority], 21521 => [:TIOCOUTQ], 278 => [:SOL_CAIF, :SYS_getrandom], 450 => [:SYS_set_mempolicy_home_node], 4098 => [:B115200], 1142 => [:_CS_POSIX_V7_LP64_OFF64_LIBS], 21529 => [:TIOCGSOFTCAR], 135 => [:_SC_C_LANG_SUPPORT, :SYS_rt_sigprocmask], 1117 => [:_CS_POSIX_V6_ILP32_OFF32_LDFLAGS], 8192 => [:CLONE_PTRACE, :ADJ_NANO, :MOD_NANO, :STA_NANO, :IMAXBEL, :BSDLY, :BS1, :O_ASYNC, :FASYNC, :AT_STATX_FORCE_SYNC, :S_IFCHR, :POLLRDHUP, :EPOLLRDHUP, :STATX_DIOALIGN, :STATX_ATTR_MOUNT_ROOT, :MSG_ERRQUEUE, :IFF_PORTSEL, :SVE_VL_MAX], 138 => [:_SC_CPUTIME, :SYS_rt_sigqueueinfo], 222 => [:SYS_mmap], 1139 => [:_CS_POSIX_V7_ILP32_OFFBIG_LINTFLAGS], 61440 => [:S_IFMT], 21512 => [:TCSETAF], 1140 => [:_CS_POSIX_V7_LP64_OFF64_CFLAGS], 107 => [:ENOTCONN, :_SC_WORD_BIT, :SYS_timer_create], 46 => [:EL3HLT, :_SC_2_VERSION, :PF_MAX, :AF_MAX, :SO_BUSY_POLL, :SYS_ftruncate], 276 => [:SOL_RDS, :SYS_renameat2], 57 => [:EBADSLT, :_SC_PII_OSI, :SO_COOKIE, :SYS_close], 32767 => [:SHRT_MAX, :RE_DUP_MAX, :INT16_MAX, :INT_LEAST16_MAX], -128 => [:SCHAR_MIN, :INT8_MIN, :INT_LEAST8_MIN, :INT_FAST8_MIN], 152 => [:_SC_NETWORKING, :SYS_setfsgid], 247 => [:_SC_THREAD_ROBUST_PRIO_INHERIT], 170 => [:_SC_2_PBS_LOCATE, :SYS_settimeofday], 511 => [:ACCESSPERMS], 1000000 => [:CLOCKS_PER_SEC], 35126 => [:SIOCDIFADDR], 129 => [:EKEYREJECTED, :_SC_XOPEN_LEGACY, :SYS_kill], 35139 => [:SIOCSIFTXQLEN], 21590 => [:TIOCGLCKTRMIOS], 238 => [:_SC_V7_ILP32_OFFBIG, :SYS_migrate_pages], 250 => [:_SC_SIGSTKSZ], 35123 => [:SIOCGIFINDEX, :SIOGIFINDEX], 78 => [:EREMCHG, :_SC_THREAD_ATTR_STACKSIZE, :SYS_readlinkat], 448 => [:S_IRWXU, :SYS_process_mrelease], 438 => [:DEFFILEMODE, :SYS_pidfd_getfd], 133 => [:EHWPOISON, :_SC_BARRIERS, :SYS_rt_sigsuspend], 72 => [:EMULTIHOP, :_SC_TTY_NAME_MAX, :SO_BUF_LOCK, :SYS_pselect6], 436 => [:SYS_close_range], 1130 => [:_CS_POSIX_V6_LPBIG_OFFBIG_LIBS], 184 => [:_SC_TRACE_LOG, :SYS_mq_notify], 1000 => [:BC_STRING_MAX, :_CS_LFS_CFLAGS], 1 => [:EPERM, :BOOL_MAX, :BOOL_WIDTH, :WNOHANG, :EXIT_FAILURE, :MB_CUR_MAX, :SCHED_FIFO, :CLOCK_MONOTONIC, :TIMER_ABSTIME, :ADJ_OFFSET, :MOD_OFFSET, :STA_PLL, :TIME_UTC, :PTHREAD_CREATE_DETACHED, :PTHREAD_MUTEX_RECURSIVE_NP, :PTHREAD_MUTEX_RECURSIVE, :PTHREAD_MUTEX_ROBUST, :PTHREAD_MUTEX_ROBUST_NP, :PTHREAD_PRIO_INHERIT, :PTHREAD_RWLOCK_PREFER_WRITER_NP, :PTHREAD_EXPLICIT_SCHED, :PTHREAD_SCOPE_PROCESS, :PTHREAD_PROCESS_SHARED, :PTHREAD_CANCEL_DISABLE, :PTHREAD_CANCEL_ASYNCHRONOUS, :TIOCPKT_FLUSHREAD, :TIOCSER_TEMT, :TIOCM_LE, :N_SLIP, :OPOST, :ISIG, :CMIN, :VQUIT, :IGNBRK, :B50, :TCOON, :TCOFLUSH, :TCSADRAIN, :O_WRONLY, :F_GETFD, :FD_CLOEXEC, :F_WRLCK, :LOCK_SH, :DN_ACCESS, :F_SEAL_SEAL, :RWH_WRITE_LIFE_NONE, :POSIX_FADV_RANDOM, :SYNC_FILE_RANGE_WAIT_BEFORE, :SPLICE_F_MOVE, :FALLOC_FL_KEEP_SIZE, :S_IXOTH, :X_OK, :SEEK_CUR, :F_LOCK, :F_OWNER_PID, :POLLIN, :EPOLL_CTL_ADD, :EPOLLIN, :STDOUT_FILENO, :L_INCR, :_PC_MAX_CANON, :_SC_CHILD_MAX, :_CS_V6_WIDTH_RESTRICTED_ENVS, :STATX_TYPE, :PF_LOCAL, :PF_UNIX, :PF_FILE, :AF_LOCAL, :AF_UNIX, :AF_FILE, :SOL_SOCKET, :SO_DEBUG, :SOCK_STREAM, :MSG_OOB, :SCM_RIGHTS, :SHUT_WR, :IFF_UP, :SIGHUP, :SA_NOCLDSTOP, :SIG_UNBLOCK, :SVE_SIG_FLAG_SM, :SVE_VQ_MIN, :ILL_ILLOPC, :FPE_INTDIV, :SEGV_MAPERR, :BUS_ADRALN, :TRAP_BRKPT, :CLD_EXITED, :POLL_IN, :SIGEV_NONE, :ITIMER_VIRTUAL, :SS_ONSTACK, :P_PID, :SYS_io_destroy, :POSIX_SPAWN_RESETIDS], 35111 => [:SIOCGIFHWADDR], 22 => [:EINVAL, :CLNEXT, :_SC_SHARED_MEMORY_OBJECTS, :PF_SNA, :AF_SNA, :SO_SECURITY_AUTHENTICATION, :SIGTTOU, :SYS_epoll_pwait], 137 => [:_SC_CLOCK_SELECTION, :SYS_rt_sigtimedwait], 154 => [:_SC_SPIN_LOCKS, :SYS_setpgid], 435 => [:SYS_clone3], 427 => [:SYS_io_uring_register], 237 => [:_SC_V7_ILP32_OFF32, :SYS_set_mempolicy], 1006 => [:_CS_LFS64_LIBS], 206 => [:SYS_sendto], 35136 => [:SIOCGIFBR], 288 => [:SYS_pkey_mprotect], 21588 => [:TIOCSERGWILD], 270 => [:SOL_NETLINK, :SYS_process_vm_readv], 33 => [:EDOM, :_SC_SEM_VALUE_MAX, :PF_RXRPC, :AF_RXRPC, :SO_RCVBUFFORCE, :SYS_mknodat], 21537 => [:FIONBIO], 21538 => [:TIOCNOTTY], 35084 => [:SIOCDELRT], 35090 => [:SIOCGIFCONF], -100 => [:AT_FDCWD], 40 => [:ELOOP, :_SC_COLL_WEIGHTS_MAX, :PF_VSOCK, :AF_VSOCK, :SO_RXQ_OVFL, :SYS_mount], 113 => [:EHOSTUNREACH, :_SC_SHRT_MAX, :SYS_clock_gettime], 231 => [:SYS_munlockall], 432 => [:SYS_fsmount], 2147767353 => [:TIOCGPTLCK], 1034 => [:F_GET_SEALS], 245 => [:_SC_TRACE_USER_EVENT_MAX], 1138 => [:_CS_POSIX_V7_ILP32_OFFBIG_LIBS], 283 => [:SOL_XDP, :SYS_membarrier], 165 => [:_SC_TYPED_MEMORY_OBJECTS, :SYS_getrusage], 142 => [:_SC_DEVICE_SPECIFIC_R, :SYS_reboot], -2147483648 => [:DN_MULTISHOT, :INT32_MIN, :INT_LEAST32_MIN, :SIG_ATOMIC_MIN], 1111 => [:_CS_XBS5_LP64_OFF64_LINTFLAGS], 5 => [:EIO, :SCHED_IDLE, :CLOCK_REALTIME_COARSE, :N_AX25, :VTIME, :B150, :F_GETLK64, :F_GETLK, :RWH_WRITE_LIFE_EXTREME, :POSIX_FADV_NOREUSE, :_PC_PIPE_BUF, :_SC_STREAM_MAX, :_CS_V7_WIDTH_RESTRICTED_ENVS, :PF_APPLETALK, :AF_APPLETALK, :SO_DONTROUTE, :SOCK_SEQPACKET, :SIGTRAP, :ILL_PRVOPC, :FPE_FLTUND, :SEGV_ACCADI, :BUS_MCEERR_AO, :TRAP_UNK, :CLD_STOPPED, :POLL_PRI, :SYS_setxattr], 269418496 => [:CIBAUD], 55 => [:ENOANO, :_SC_PII_SOCKET, :SO_MEMINFO, :SYS_fchown], 114 => [:EALREADY, :_SC_SHRT_MIN, :SYS_clock_getres], 265 => [:SOL_AAL, :SYS_open_by_handle_at], 21584 => [:FIONCLEX], 4100 => [:B460800], 4111 => [:CBAUD, :B4000000], 2147483648 => [:EPOLLET, :STATX__RESERVED, :SA_RESETHAND, :SA_ONESHOT], 40961 => [:ADJ_OFFSET_SS_READ], 1119 => [:_CS_POSIX_V6_ILP32_OFF32_LINTFLAGS], 136 => [:_SC_C_LANG_SUPPORT_R, :SYS_rt_sigpending], 117 => [:EUCLEAN, :_SC_ULONG_MAX, :SYS_ptrace], 45 => [:EL2NSYNC, :_SC_CHARCLASS_NAME_MAX, :PF_MCTP, :AF_MCTP, :SO_SELECT_ERR_QUEUE, :SYS_truncate], 1024 => [:PTHREAD_KEYS_MAX, :IOV_MAX, :FD_SETSIZE, :CLONE_FILES, :CPU_SETSIZE, :STA_PPSWANDER, :IXON, :HUPCL, :CR2, :ECHOPRT, :O_APPEND, :F_SETLEASE, :FAPPEND, :AT_SYMLINK_FOLLOW, :S_ISGID, :POLLMSG, :EPOLLMSG, :STATX_BLOCKS, :MSG_SYN, :IFF_MASTER], 1026 => [:F_NOTIFY], 145 => [:_SC_PIPE, :SYS_setreuid], 282 => [:SOL_TLS, :SYS_userfaultfd], 449 => [:SYS_futex_waitv], 444 => [:SYS_landlock_create_ruleset], 21532 => [:TIOCLINUX], 40960 => [:S_IFLNK], 275 => [:SOL_PNPIPE, :SYS_sched_getattr], 35156 => [:SIOCGARP], -60 => [:SI_ASYNCNL], 1146 => [:_CS_POSIX_V7_LPBIG_OFFBIG_LIBS], 1127 => [:_CS_POSIX_V6_LP64_OFF64_LINTFLAGS], 21594 => [:TIOCSERGETMULTI], 35101 => [:SIOCGIFMETRIC], 35157 => [:SIOCSARP], 16384 => [:CLONE_VFORK, :ADJ_TICK, :MOD_CLKB, :STA_MODE, :IUTF8, :VTDLY, :VT1, :PENDIN, :O_DIRECTORY, :AT_STATX_DONT_SYNC, :S_IFDIR, :MSG_NOSIGNAL, :IFF_AUTOMEDIA], 4102 => [:B576000], -4 => [:SI_ASYNCIO], 158 => [:_SC_SIGNALS, :SYS_getgroups], 437 => [:SYS_openat2], 176 => [:_SC_V6_ILP32_OFF32, :SYS_getgid], 218 => [:SYS_request_key], -9223372036854775808 => [:LONG_MIN, :LLONG_MIN, :LONG_LONG_MIN, :INT64_MIN, :INT_LEAST64_MIN, :INT_FAST16_MIN, :INT_FAST32_MIN, :INT_FAST64_MIN, :INTPTR_MIN, :INTMAX_MIN, :PTRDIFF_MIN], 35094 => [:SIOCSIFADDR], 28 => [:ENOSPC, :CQUIT, :_SC_MQ_PRIO_MAX, :PF_MPLS, :AF_MPLS, :SO_PEERNAME, :SIGWINCH, :SYS_inotify_rm_watch], 35108 => [:SIOCSIFHWADDR], 4103 => [:B921600], 148 => [:_SC_FILE_SYSTEM, :SYS_getresuid], 92 => [:ENOPROTOOPT, :_SC_XOPEN_CRYPT, :SYS_personality], 21545 => [:TIOCGSID], 21551 => [:TIOCSRS485], 21592 => [:TIOCSERGSTRUCT], 36 => [:ENAMETOOLONG, :F_OFD_GETLK, :_SC_BC_BASE_MAX, :PF_IEEE802154, :AF_IEEE802154, :SO_MARK, :SYS_symlinkat], 21509 => [:TCGETA], 21505 => [:TCGETS], 2147767352 => [:TIOCGPKT], 118 => [:ENOTNAM, :_SC_USHRT_MAX, :SYS_sched_setparam], 1004 => [:_CS_LFS64_CFLAGS], 162 => [:_SC_SYSTEM_DATABASE, :SYS_setdomainname], 84 => [:EILSEQ, :_SC_NPROCESSORS_ONLN, :SYS_sync_file_range], 1147 => [:_CS_POSIX_V7_LPBIG_OFFBIG_LINTFLAGS], 7 => [:E2BIG, :CLOCK_BOOTTIME, :N_6PACK, :VSWTC, :B300, :F_SETLKW64, :F_SETLKW, :SYNC_FILE_RANGE_WRITE_AND_WAIT, :S_IRWXO, :_PC_NO_TRUNC, :_SC_JOB_CONTROL, :PF_BRIDGE, :AF_BRIDGE, :SO_SNDBUF, :SIGBUS, :ILL_COPROC, :FPE_FLTINV, :SEGV_ADIPERR, :SYS_fsetxattr], 25 => [:ENOTTY, :CDSUSP, :_SC_AIO_PRIO_DELTA_MAX, :PF_WANPIPE, :AF_WANPIPE, :SO_BINDTODEVICE, :SIGXFSZ, :SYS_fcntl], 95 => [:EOPNOTSUPP, :ENOTSUP, :_SC_2_CHAR_TERM, :SYS_waitid], 203 => [:SYS_connect], 1001 => [:_CS_LFS_LDFLAGS], 35093 => [:SIOCGIFADDR], 1128 => [:_CS_POSIX_V6_LPBIG_OFFBIG_CFLAGS], 35122 => [:SIOCDELMULTI], 292 => [:SYS_io_pgetevents], 232 => [:SYS_mincore], 4101 => [:B500000], 93 => [:EPROTONOSUPPORT, :_SC_XOPEN_ENH_I18N, :SYS_exit], 1179680769 => [:FPSIMD_MAGIC], 35200 => [:SIOCADDDLCI], 18 => [:EXDEV, :CREPRINT, :CRPRNT, :_PC_ALLOC_SIZE_MIN, :_SC_MEMLOCK_RANGE, :PF_ASH, :AF_ASH, :SO_RCVLOWAT, :SIGCONT, :SYS_lookup_dcookie], 240 => [:_SC_V7_LPBIG_OFFBIG, :SYS_rt_tgsigqueueinfo], 147 => [:_SC_FILE_LOCKING, :SYS_setresuid], 157 => [:_SC_SHELL, :SYS_setsid], 16 => [:EBUSY, :MB_LEN_MAX, :SHRT_WIDTH, :USHRT_WIDTH, :ADJ_STATUS, :MOD_STATUS, :STA_INS, :IOCSIZE_SHIFT, :TIOCPKT_NOSTOP, :TIOCM_SR, :ECHOE, :VEOL2, :INPCK, :ONOCR, :CS6, :F_GETOWN_EX, :DN_RENAME, :F_SEAL_FUTURE_WRITE, :FALLOC_FL_ZERO_RANGE, :S_IWGRP, :POLLHUP, :INT16_WIDTH, :UINT16_WIDTH, :INT_LEAST16_WIDTH, :UINT_LEAST16_WIDTH, :EPOLLHUP, :_PC_REC_MIN_XFER_SIZE, :_SC_MAPPED_FILES, :STATX_GID, :STATX_ATTR_IMMUTABLE, :PF_NETLINK, :PF_ROUTE, :AF_NETLINK, :AF_ROUTE, :SO_PASSCRED, :IF_NAMESIZE, :IFNAMSIZ, :MSG_PROXY, :IFF_POINTOPOINT, :SIGSTKFLT, :SVE_VQ_BYTES, :SVE_VL_MIN, :SVE_NUM_PREGS, :SVE_SIG_ZREGS_OFFSET, :SYS_fremovexattr, :POSIX_SPAWN_SETSCHEDPARAM], 21569 => [:TIOCGPTPEER], 1132 => [:_CS_POSIX_V7_ILP32_OFF32_CFLAGS], 287 => [:SYS_pwritev2], 19 => [:ENODEV, :CSTOP, :_PC_SYMLINK_MAX, :_SC_MEMORY_PROTECTION, :PF_ECONET, :AF_ECONET, :SO_SNDLOWAT, :SIGSTOP, :SYS_eventfd2], 44 => [:ECHRNG, :_SC_RE_DUP_MAX, :PF_XDP, :AF_XDP, :SO_LOCK_FILTER, :SYS_fstatfs], 266 => [:SOL_IRDA, :SYS_clock_adjtime], 31 => [:EMLINK, :_SC_RTSIG_MAX, :PF_BLUETOOTH, :AF_BLUETOOTH, :SO_PEERSEC, :SIGSYS, :SYS_ioprio_get], 217 => [:SYS_add_key], 146 => [:_SC_FILE_ATTRIBUTES, :SYS_setuid], 74 => [:EBADMSG, :_SC_THREAD_KEYS_MAX, :SO_TXREHASH, :SYS_signalfd4], 21589 => [:TIOCSERSWILD], 35124 => [:SIOCSIFPFLAGS], 61 => [:ENODATA, :_SC_PII_INTERNET_STREAM, :SO_TXTIME, :SCM_TXTIME, :SYS_getdents64], 29 => [:ESPIPE, :_SC_VERSION, :PF_CAN, :AF_CAN, :SO_TIMESTAMP_OLD, :SO_TIMESTAMP, :SCM_TIMESTAMP, :SIGPOLL, :SIGIO, :SYS_ioctl], 1536 => [:CRDLY, :CR3], 2147483647 => [:INT_MAX, :DELAYTIMER_MAX, :SEM_VALUE_MAX, :NL_MSGMAX, :NL_NMAX, :NL_SETMAX, :NL_TEXTMAX, :RAND_MAX, :INT32_MAX, :INT_LEAST32_MAX, :SIG_ATOMIC_MAX], 212 => [:SYS_recvmsg], 424 => [:SYS_pidfd_send_signal], 228 => [:SYS_mlock], 6149 => [:TTYDEF_OFLAG], 159 => [:_SC_SPAWN, :SYS_setgroups], 193 => [:_SC_LEVEL2_CACHE_LINESIZE, :SYS_semop], 4107 => [:B2000000], 226 => [:SYS_mprotect], 4105 => [:B1152000], 101 => [:ENETUNREACH, :_SC_CHAR_BIT, :SYS_nanosleep], 21535 => [:TIOCSSERIAL], 16777216 => [:WNOWAIT, :CLONE_CHILD_SETTID], 1129 => [:_CS_POSIX_V6_LPBIG_OFFBIG_LDFLAGS], 105 => [:ENOBUFS, :_SC_INT_MIN, :SYS_init_module], 223 => [:SYS_fadvise64], 21533 => [:TIOCCONS], 285 => [:SOL_MCTP, :SYS_copy_file_range], 35201 => [:SIOCDELDLCI], 17 => [:EEXIST, :CSTART, :_PC_REC_XFER_ALIGN, :_SC_MEMLOCK, :PF_PACKET, :AF_PACKET, :SO_PEERCRED, :SIGCHLD, :SIGCLD, :SYS_getcwd], 271 => [:SOL_TIPC, :SYS_process_vm_writev], 4104 => [:B1000000], 35089 => [:SIOCSIFLINK], 426 => [:SYS_io_uring_enter], 35137 => [:SIOCSIFBR], 166 => [:_SC_USER_GROUPS, :SYS_umask], 89 => [:EDESTADDRREQ, :_SC_XOPEN_VERSION, :SYS_acct], 21587 => [:TIOCSERCONFIG], 198 => [:_SC_LEVEL4_CACHE_ASSOC, :SYS_socket], 80 => [:ELIBBAD, :_SC_THREAD_PRIO_INHERIT, :ELF_PRARGSZ, :SYS_fstat], 214 => [:SYS_brk], 51 => [:EL2HLT, :_SC_2_SW_DEV, :SO_ATTACH_REUSEPORT_CBPF, :SYS_chroot], 21525 => [:TIOCMGET], 274 => [:SOL_BLUETOOTH, :SYS_sched_setattr], 21517 => [:TIOCNXCL], 246 => [:_SC_XOPEN_STREAMS], 1031 => [:F_SETPIPE_SZ], 143 => [:_SC_FD_MGMT, :SYS_setregid], 35077 => [:SIOCATMARK], 48 => [:ELNRNG, :CSIZE, :CS8, :_SC_2_C_DEV, :SO_BPF_EXTENSIONS, :SYS_faccessat], 15 => [:ENOTBLK, :N_HCI, :CDISCARD, :CFLUSH, :VLNEXT, :B38400, :EXTB, :F_SETOWN_EX, :_PC_REC_MAX_XFER_SIZE, :_SC_FSYNC, :PF_KEY, :AF_KEY, :SO_REUSEPORT, :SIGTERM, :FPE_CONDTRAP, :SYS_lremovexattr], 35109 => [:SIOCGIFENCAP], 35312 => [:SIOCDEVPRIVATE], 97 => [:EAFNOSUPPORT, :_SC_2_UPE, :SYS_unshare], 262144 => [:CLONE_SYSVSEM, :O_NOATIME, :MSG_BATCH], 1035 => [:F_GET_RW_HINT], 4210688 => [:O_TMPFILE], 1120 => [:_CS_POSIX_V6_ILP32_OFFBIG_CFLAGS], 284 => [:SOL_MPTCP, :SYS_mlock2], 134 => [:_SC_BASE, :SYS_rt_sigaction], 35138 => [:SIOCGIFTXQLEN], 35099 => [:SIOCGIFNETMASK], 35095 => [:SIOCGIFDSTADDR], 110 => [:ETIMEDOUT, :_SC_SSIZE_MAX, :SYS_timer_settime], 21554 => [:TCGETX], 1118 => [:_CS_POSIX_V6_ILP32_OFF32_LIBS], 21597 => [:TIOCGICOUNT], 30 => [:EROFS, :_SC_PAGESIZE, :PF_TIPC, :AF_TIPC, :SO_ACCEPTCONN, :SIGPWR, :SYS_ioprio_set], 1100 => [:_CS_XBS5_ILP32_OFF32_CFLAGS], 35110 => [:SIOCSIFENCAP], 6 => [:ENXIO, :SCHED_DEADLINE, :CLOCK_MONOTONIC_COARSE, :N_X25, :VMIN, :B200, :F_SETLK64, :F_SETLK, :_PC_CHOWN_RESTRICTED, :_SC_TZNAME_MAX, :PF_NETROM, :AF_NETROM, :SO_BROADCAST, :IFHWADDRLEN, :SOCK_DCCP, :SIGABRT, :SIGIOT, :ILL_PRVREG, :FPE_FLTRES, :SEGV_ADIDERR, :CLD_CONTINUED, :POLL_HUP, :SYS_lsetxattr], 134217728 => [:CLONE_NEWIPC, :SA_ONSTACK, :SA_STACK], 1440 => [:TTYDEF_CFLAG], 1106 => [:_CS_XBS5_ILP32_OFFBIG_LIBS], 219 => [:SYS_keyctl], 234 => [:SYS_remap_file_pages], 272 => [:SOL_RXRPC, :SYS_kcmp], 182 => [:_SC_TRACE_EVENT_FILTER, :SYS_mq_timedsend], 164 => [:_SC_TIMEOUTS, :SYS_setrlimit], 153 => [:_SC_READER_WRITER_LOCKS, :SYS_times], 186 => [:_SC_LEVEL1_ICACHE_ASSOC, :SYS_msgget], 64 => [:ENONET, :LONG_WIDTH, :ULONG_WIDTH, :LLONG_WIDTH, :ULLONG_WIDTH, :HOST_NAME_MAX, :LONG_BIT, :NFDBITS, :STA_UNSYNC, :TIOCPKT_IOCTL, :TIOCM_CAR, :TIOCM_CD, :INLCR, :OFILL, :CSTOPB, :ECHONL, :O_CREAT, :LOCK_READ, :FALLOC_FL_UNSHARE_RANGE, :S_IXUSR, :POLLRDNORM, :INT64_WIDTH, :UINT64_WIDTH, :INT_LEAST64_WIDTH, :UINT_LEAST64_WIDTH, :INT_FAST16_WIDTH, :UINT_FAST16_WIDTH, :INT_FAST32_WIDTH, :UINT_FAST32_WIDTH, :INT_FAST64_WIDTH, :UINT_FAST64_WIDTH, :INTPTR_WIDTH, :UINTPTR_WIDTH, :INTMAX_WIDTH, :UINTMAX_WIDTH, :PTRDIFF_WIDTH, :SIZE_WIDTH, :EPOLLRDNORM, :_SC_PII_OSI_CLTS, :S_IEXEC, :STATX_MTIME, :STATX_ATTR_NODUMP, :SO_TIMESTAMPNS_NEW, :MSG_DONTWAIT, :IFF_RUNNING, :SIGRTMAX, :SYS_write, :POSIX_SPAWN_USEVFORK], 21555 => [:TCSETX], 1125 => [:_CS_POSIX_V6_LP64_OFF64_LDFLAGS], 1038 => [:F_SET_FILE_RW_HINT], 267 => [:SOL_NETBEUI, :SYS_syncfs], 90 => [:EMSGSIZE, :_SC_XOPEN_XCU_VERSION, :SYS_capget], 2048 => [:BC_DIM_MAX, :LINE_MAX, :CHARCLASS_NAME_MAX, :NL_LANGMAX, :CLONE_SIGHAND, :STA_PPSERROR, :IXANY, :ECHOKE, :TAB1, :CLOCAL, :O_NONBLOCK, :O_NDELAY, :FNONBLOCK, :FNDELAY, :AT_NO_AUTOMOUNT, :S_ISUID, :STATX_BTIME, :STATX_ATTR_ENCRYPTED, :SOCK_NONBLOCK, :MSG_CONFIRM, :IFF_SLAVE], 139 => [:_SC_THREAD_CPUTIME, :SYS_rt_sigreturn], 21591 => [:TIOCSLCKTRMIOS], 4 => [:EINTR, :PTHREAD_DESTRUCTOR_ITERATIONS, :WEXITED, :SCHED_ISO, :CLOCK_MONOTONIC_RAW, :ADJ_MAXERROR, :MOD_MAXERROR, :STA_PPSTIME, :TIOCPKT_STOP, :TIOCM_RTS, :N_STRIP, :ONLCR, :CEOF, :CEOT, :VEOF, :IGNPAR, :B134, :XCASE, :F_SETFL, :F_EXLCK, :LOCK_NB, :DN_CREATE, :F_SEAL_GROW, :RWH_WRITE_LIFE_LONG, :POSIX_FADV_DONTNEED, :SYNC_FILE_RANGE_WAIT_AFTER, :SPLICE_F_MORE, :FALLOC_FL_NO_HIDE_STALE, :S_IROTH, :R_OK, :POLLOUT, :EPOLLOUT, :SEEK_HOLE, :CLOSE_RANGE_CLOEXEC, :_PC_PATH_MAX, :_SC_OPEN_MAX, :_CS_V5_WIDTH_RESTRICTED_ENVS, :STATX_NLINK, :STATX_ATTR_COMPRESSED, :PF_IPX, :AF_IPX, :SO_ERROR, :SOCK_RDM, :MSG_DONTROUTE, :MSG_TRYHARD, :IFF_DEBUG, :SIGILL, :SA_SIGINFO, :ILL_ILLTRP, :FPE_FLTOVF, :SEGV_PKUERR, :BUS_MCEERR_AR, :TRAP_HWBKPT, :CLD_TRAPPED, :POLL_ERR, :SIGEV_THREAD_ID, :SYS_io_getevents, :POSIX_SPAWN_SETSIGDEF], 13 => [:EACCES, :N_HDLC, :B9600, :TTYDEF_SPEED, :VDISCARD, :_PC_FILESIZEBITS, :_SC_PRIORITIZED_IO, :PF_NETBEUI, :AF_NETBEUI, :SO_LINGER, :SIGPIPE, :SYS_flistxattr], 35169 => [:SIOCGRARP], 1126 => [:_CS_POSIX_V6_LP64_OFF64_LIBS], 104 => [:ECONNRESET, :_SC_INT_MAX, :SYS_kexec_load], 1116 => [:_CS_POSIX_V6_ILP32_OFF32_CFLAGS], 35073 => [:FIOSETOWN], 24576 => [:AT_STATX_SYNC_TYPE, :S_IFBLK], 52 => [:EBADE, :_SC_2_LOCALEDEF, :SO_ATTACH_REUSEPORT_EBPF, :SYS_fchmod], 35106 => [:SIOCSIFMTU], 179 => [:_SC_V6_LPBIG_OFFBIG, :SYS_sysinfo], 21522 => [:TIOCSTI], 43 => [:EIDRM, :_SC_LINE_MAX, :PF_SMC, :AF_SMC, :SO_NOFCS, :SYS_statfs], 11 => [:EAGAIN, :EWOULDBLOCK, :CLOCK_TAI, :N_IRDA, :VEOL, :B2400, :F_GETSIG, :_PC_PRIO_IO, :_SC_TIMERS, :PF_ROSE, :AF_ROSE, :SO_NO_CHECK, :SIGSEGV, :SYS_listxattr], 69 => [:ESRMNT, :_SC_GETGR_R_SIZE_MAX, :SO_PREFER_BUSY_POLL, :SYS_preadv], 35296 => [:SIOCPROTOPRIVATE], 171 => [:_SC_2_PBS_MESSAGE, :SYS_adjtimex], 1074025521 => [:TIOCSPTLCK], 85 => [:ERESTART, :_SC_PHYS_PAGES, :SYS_timerfd_create], 119 => [:ENAVAIL, :_SC_NL_ARGMAX, :SYS_sched_setscheduler], 21593 => [:TIOCSERGETLSR], 39 => [:ENOTEMPTY, :_SC_BC_STRING_MAX, :PF_NFC, :AF_NFC, :SO_DOMAIN, :SYS_umount2], 216 => [:SYS_mremap], 21515 => [:TCFLSH], 126 => [:ENOKEY, :_SC_XBS5_ILP32_OFFBIG, :SYS_sched_get_priority_min], 108 => [:ESHUTDOWN, :_SC_MB_LEN_MAX, :SYS_timer_gettime], 35120 => [:SIOCSIFSLAVE], 2147767360 => [:TIOCGEXCL], 1114 => [:_CS_XBS5_LPBIG_OFFBIG_LIBS], 441 => [:SYS_epoll_pwait2], 156 => [:_SC_REGEX_VERSION, :SYS_getsid], 21519 => [:TIOCGPGRP], 21544 => [:TIOCCBRK], 439 => [:SYS_faccessat2], 443 => [:SYS_quotactl_fd], 2 => [:ENOENT, :WUNTRACED, :WSTOPPED, :SCHED_RR, :CLOCK_PROCESS_CPUTIME_ID, :ADJ_FREQUENCY, :MOD_FREQUENCY, :STA_PPSFREQ, :PTHREAD_MUTEX_ERRORCHECK_NP, :PTHREAD_MUTEX_ERRORCHECK, :PTHREAD_PRIO_PROTECT, :PTHREAD_RWLOCK_PREFER_WRITER_NONRECURSIVE_NP, :TIOCPKT_FLUSHWRITE, :TIOCM_DTR, :N_MOUSE, :BRKINT, :ICANON, :VERASE, :OLCUC, :B75, :TCIOFF, :TCIOFLUSH, :TCSAFLUSH, :O_RDWR, :F_SETFD, :F_UNLCK, :LOCK_EX, :DN_MODIFY, :F_SEAL_SHRINK, :RWH_WRITE_LIFE_SHORT, :POSIX_FADV_SEQUENTIAL, :SYNC_FILE_RANGE_WRITE, :SPLICE_F_NONBLOCK, :FALLOC_FL_PUNCH_HOLE, :S_IWOTH, :W_OK, :SEEK_END, :F_TLOCK, :F_OWNER_PGRP, :F_OWNER_GID, :POLLPRI, :EPOLL_CTL_DEL, :EPOLLPRI, :STDERR_FILENO, :L_XTND, :CLOSE_RANGE_UNSHARE, :_PC_MAX_INPUT, :_SC_CLK_TCK, :_CS_GNU_LIBC_VERSION, :STATX_MODE, :PF_INET, :AF_INET, :SO_REUSEADDR, :SOCK_DGRAM, :MSG_PEEK, :SCM_CREDENTIALS, :SHUT_RDWR, :IFF_BROADCAST, :SIGINT, :SA_NOCLDWAIT, :SIG_SETMASK, :ILL_ILLOPN, :FPE_INTOVF, :SEGV_ACCERR, :BUS_ADRERR, :TRAP_TRACE, :CLD_KILLED, :POLL_OUT, :SIGEV_THREAD, :ITIMER_PROF, :SS_DISABLE, :P_PGID, :SYS_io_submit, :POSIX_SPAWN_SETPGROUP], 10 => [:ECHILD, :N_PROFIBUS_FDL, :VSUSP, :B1800, :F_SETSIG, :_PC_ASYNC_IO, :_SC_PRIORITY_SCHEDULING, :PF_INET6, :AF_INET6, :SO_OOBINLINE, :SOCK_PACKET, :SIGUSR1, :SYS_fgetxattr], 27 => [:EFBIG, :_SC_MQ_OPEN_MAX, :PF_IB, :AF_IB, :SO_DETACH_FILTER, :SO_DETACH_BPF, :SIGPROF, :SYS_inotify_add_watch], 124 => [:EMEDIUMTYPE, :_SC_NL_TEXTMAX, :SYS_sched_yield], 1134 => [:_CS_POSIX_V7_ILP32_OFF32_LIBS], 261 => [:SOL_DECNET, :SYS_prlimit64], 1163416577 => [:EXTRA_MAGIC], 144 => [:_SC_FIFO, :SYS_setgid], 273 => [:SOL_PPPOL2TP, :SYS_finit_module], 200 => [:SYS_bind], 35097 => [:SIOCGIFBRDADDR], 20 => [:ENOTDIR, :AIO_PRIO_DELTA_MAX, :NZERO, :_PC_2_SYMLINKS, :_SC_MESSAGE_PASSING, :PF_ATMSVC, :AF_ATMSVC, :SO_RCVTIMEO_OLD, :SO_RCVTIMEO, :SIGTSTP, :SYS_epoll_create1], 81 => [:ELIBSCN, :_SC_THREAD_PRIO_PROTECT, :SYS_sync], 1136 => [:_CS_POSIX_V7_ILP32_OFFBIG_CFLAGS], 290 => [:SYS_pkey_free], 20480 => [:MINSIGSTKSZ, :SIGSTKSZ], 6144 => [:XTABS, :TABDLY, :TAB3], 0 => [:NULL, :CHAR_MIN, :EXIT_SUCCESS, :SCHED_OTHER, :CLOCK_REALTIME, :PTHREAD_ONCE_INIT, :PTHREAD_CREATE_JOINABLE, :PTHREAD_MUTEX_TIMED_NP, :PTHREAD_MUTEX_NORMAL, :PTHREAD_MUTEX_DEFAULT, :PTHREAD_MUTEX_FAST_NP, :PTHREAD_MUTEX_STALLED, :PTHREAD_MUTEX_STALLED_NP, :PTHREAD_PRIO_NONE, :PTHREAD_RWLOCK_PREFER_READER_NP, :PTHREAD_RWLOCK_DEFAULT_NP, :PTHREAD_INHERIT_SCHED, :PTHREAD_SCOPE_SYSTEM, :PTHREAD_PROCESS_PRIVATE, :PTHREAD_CANCEL_ENABLE, :PTHREAD_CANCEL_DEFERRED, :TIOCPKT_DATA, :N_TTY, :CTIME, :VINTR, :NL0, :CR0, :TAB0, :BS0, :FF0, :VT0, :B0, :CS5, :TCOOFF, :TCIFLUSH, :TCSANOW, :O_RDONLY, :O_LARGEFILE, :F_DUPFD, :F_RDLCK, :RWH_WRITE_LIFE_NOT_SET, :RWF_WRITE_LIFE_NOT_SET, :POSIX_FADV_NORMAL, :AT_STATX_SYNC_AS_STAT, :F_OK, :SEEK_SET, :F_ULOCK, :F_OWNER_TID, :WCHAR_MIN, :WINT_MIN, :STDIN_FILENO, :L_SET, :_PC_LINK_MAX, :_SC_ARG_MAX, :_CS_PATH, :PF_UNSPEC, :AF_UNSPEC, :SHUT_RD, :SIG_BLOCK, :SI_USER, :SIGEV_SIGNAL, :ITIMER_REAL, :WAIT_MYPGRP, :P_ALL, :SYS_io_setup], 187 => [:_SC_LEVEL1_ICACHE_LINESIZE, :SYS_msgctl], 21510 => [:TCSETA], 1101 => [:_CS_XBS5_ILP32_OFF32_LDFLAGS], 213 => [:SYS_readahead], 1110 => [:_CS_XBS5_LP64_OFF64_LIBS], 9 => [:EBADF, :CLOCK_BOOTTIME_ALARM, :N_R3964, :VSTOP, :B1200, :F_GETOWN, :_PC_SYNC_IO, :_SC_REALTIME_SIGNALS, :PF_X25, :AF_X25, :SO_KEEPALIVE, :SIGKILL, :ILL_BADIADDR, :SEGV_MTESERR, :SYS_lgetxattr], 189 => [:_SC_LEVEL1_DCACHE_ASSOC, :SYS_msgsnd], 1003 => [:_CS_LFS_LINTFLAGS], 294 => [:SYS_kexec_file_load], 512 => [:CLONE_FS, :STA_PPSJITTER, :ECHOCTL, :IUCLC, :CR1, :PARODD, :O_TRUNC, :AT_REMOVEDIR, :AT_EACCESS, :S_ISVTX, :POLLWRBAND, :EPOLLWRBAND, :S_BLKSIZE, :STATX_SIZE, :MSG_FIN, :IFF_ALLMULTI, :SVE_VQ_MAX], 227 => [:SYS_msync], 109 => [:ETOOMANYREFS, :_SC_NZERO, :SYS_timer_getoverrun], 21541 => [:TCSBRKP], 161 => [:_SC_THREAD_SPORADIC_SERVER, :SYS_sethostname], 1103 => [:_CS_XBS5_ILP32_OFF32_LINTFLAGS], 445 => [:SYS_landlock_add_rule], 32769 => [:ADJ_OFFSET_SINGLESHOT, :MOD_CLKA], 35100 => [:SIOCSIFNETMASK], 249 => [:_SC_MINSIGSTKSZ], 21518 => [:TIOCSCTTY], 241 => [:_SC_SS_REPL_MAX, :SYS_perf_event_open], 1145 => [:_CS_POSIX_V7_LPBIG_OFFBIG_LDFLAGS], 88 => [:ENOTSOCK, :_SC_PASS_MAX, :SYS_utimensat], 209 => [:SYS_getsockopt], 236 => [:_SC_RAW_SOCKETS, :SYS_get_mempolicy], 120 => [:EISNAM, :_SC_NL_LANGMAX, :SYS_sched_getscheduler], 35078 => [:SIOCGSTAMP_OLD], 8388608 => [:CLONE_UNTRACED], 21526 => [:TIOCMBIS], 1141 => [:_CS_POSIX_V7_LP64_OFF64_LDFLAGS], 260 => [:SYS_wait4], 21536 => [:TIOCPKT], 24 => [:EMFILE, :_SC_AIO_MAX, :PF_PPPOX, :AF_PPPOX, :SO_SECURITY_ENCRYPTION_NETWORK, :SIGXCPU, :SYS_dup3], -6 => [:SI_TKILL], 8 => [:ENOEXEC, :CHAR_BIT, :CHAR_WIDTH, :SCHAR_WIDTH, :UCHAR_WIDTH, :WCONTINUED, :CLOCK_REALTIME_ALARM, :ADJ_ESTERROR, :MOD_ESTERROR, :STA_FLL, :TIOCPKT_START, :NCC, :TIOCM_ST, :N_MASC, :ECHO, :VSTART, :PARMRK, :OCRNL, :B600, :F_SETOWN, :F_SHLCK, :LOCK_UN, :DN_DELETE, :F_SEAL_WRITE, :SPLICE_F_GIFT, :FALLOC_FL_COLLAPSE_RANGE, :S_IXGRP, :POLLERR, :INT8_WIDTH, :UINT8_WIDTH, :INT_LEAST8_WIDTH, :UINT_LEAST8_WIDTH, :INT_FAST8_WIDTH, :UINT_FAST8_WIDTH, :EPOLLERR, :_PC_VDISABLE, :_SC_SAVED_IDS, :STATX_UID, :PF_ATMPVC, :AF_ATMPVC, :SO_RCVBUF, :MSG_CTRUNC, :IFF_LOOPBACK, :SIGFPE, :ILL_BADSTK, :FPE_FLTSUB, :SEGV_MTEAERR, :SYS_getxattr, :POSIX_SPAWN_SETSIGMASK], 37 => [:ENOLCK, :F_OFD_SETLK, :_SC_BC_DIM_MAX, :PF_CAIF, :AF_CAIF, :SO_TIMESTAMPING_OLD, :SO_TIMESTAMPING, :SCM_TIMESTAMPING, :SYS_linkat], 35168 => [:SIOCDRARP], 35075 => [:FIOGETOWN], 83 => [:ELIBEXEC, :_SC_NPROCESSORS_CONF, :SYS_fdatasync], 21534 => [:TIOCGSERIAL], 1137 => [:_CS_POSIX_V7_ILP32_OFFBIG_LDFLAGS], 21511 => [:TCSETAW], 190 => [:_SC_LEVEL1_DCACHE_LINESIZE, :SYS_semget], 201 => [:SYS_listen], 99 => [:EADDRNOTAVAIL, :BC_BASE_MAX, :BC_SCALE_MAX, :_SC_XOPEN_XPG3, :SYS_set_robust_list], 121 => [:EREMOTEIO, :_SC_NL_MSGMAX, :SYS_sched_getparam], 281 => [:SOL_KCM, :SYS_execveat], 14 => [:EFAULT, :N_SYNC_PPP, :VWERASE, :B19200, :EXTA, :_PC_REC_INCR_XFER_SIZE, :_SC_SYNCHRONIZED_IO, :PF_SECURITY, :AF_SECURITY, :SO_BSDCOMPAT, :SIGALRM, :FPE_FLTUNK, :SYS_removexattr], 21524 => [:TIOCSWINSZ], 4110 => [:B3500000], 433 => [:SYS_fspick], 1005 => [:_CS_LFS64_LDFLAGS], 35170 => [:SIOCSRARP], 447 => [:SYS_memfd_secret], 1073741822 => [:UTIME_OMIT], 4095 => [:ALLPERMS, :STATX_ALL], 174 => [:_SC_STREAMS, :SYS_getuid], 21600 => [:FIOQSIZE], 1030 => [:F_DUPFD_CLOEXEC], 21513 => [:TCSBRK], 131072 => [:PTHREAD_STACK_MIN, :CLONE_NEWNS], 4106 => [:B1500000], 269 => [:SOL_DCCP, :SYS_sendmmsg], 1234 => [:LITTLE_ENDIAN, :BYTE_ORDER], 123 => [:ENOMEDIUM, :_SC_NL_SETMAX, :SYS_sched_getaffinity], 1104 => [:_CS_XBS5_ILP32_OFFBIG_CFLAGS], 21514 => [:TCXONC], 1163088385 => [:ESR_MAGIC], 67108864 => [:CLONE_NEWUTS, :MSG_ZEROCOPY], 268 => [:SOL_LLC, :SYS_setns], 21550 => [:TIOCGRS485], 21596 => [:TIOCMIWAIT], 32 => [:EPIPE, :INT_WIDTH, :UINT_WIDTH, :RTSIG_MAX, :TTY_NAME_MAX, :EXPR_NEST_MAX, :WORD_BIT, :ADJ_TIMECONST, :MOD_TIMECONST, :STA_DEL, :TIOCPKT_DOSTOP, :TIOCM_CTS, :ISTRIP, :CS7, :NCCS, :ONLRET, :ECHOK, :LOCK_MAND, :DN_ATTRIB, :FALLOC_FL_INSERT_RANGE, :S_IRGRP, :POLLNVAL, :INT32_WIDTH, :UINT32_WIDTH, :INT_LEAST32_WIDTH, :UINT_LEAST32_WIDTH, :SIG_ATOMIC_WIDTH, :WCHAR_WIDTH, :WINT_WIDTH, :_SC_SEM_NSEMS_MAX, :STATX_ATIME, :STATX_ATTR_APPEND, :PF_IUCV, :AF_IUCV, :SO_SNDBUFFORCE, :MSG_TRUNC, :IFF_NOTRAILERS, :SVE_NUM_ZREGS, :SYS_flock, :POSIX_SPAWN_SETSCHEDULER], 1124 => [:_CS_POSIX_V6_LP64_OFF64_CFLAGS], 197 => [:_SC_LEVEL4_CACHE_SIZE, :SYS_shmdt], 35127 => [:SIOCSIFHWBROADCAST], 1121 => [:_CS_POSIX_V6_ILP32_OFFBIG_LDFLAGS], 233 => [:SYS_madvise], 196 => [:_SC_LEVEL3_CACHE_LINESIZE, :SYS_shmat], 21507 => [:TCSETSW], 4108 => [:B2500000], 262 => [:SOL_X25, :SYS_fanotify_init], 21595 => [:TIOCSERSETMULTI], 21528 => [:TIOCMSET], 4097 => [:B57600], 35079 => [:SIOCGSTAMPNS_OLD], 210 => [:SYS_shutdown], 151 => [:_SC_SINGLE_PROCESS, :SYS_setfsuid], 35074 => [:SIOCSPGRP], 35085 => [:SIOCRTMSG], 1025 => [:F_GETLEASE], 239 => [:_SC_V7_LP64_OFF64, :SYS_move_pages], -7 => [:SI_DETHREAD], 21540 => [:TIOCGETD], 21516 => [:TIOCEXCL], 4099 => [:B230400], 54 => [:EXFULL, :_SC_PII_XTI, :SCM_TIMESTAMPING_OPT_STATS, :SYS_fchownat], 63 => [:ENOSR, :_SC_PII_OSI_COTS, :SO_TIMESTAMP_NEW, :SYS_read], 191 => [:_SC_LEVEL2_CACHE_SIZE, :SYS_semctl], 35098 => [:SIOCSIFBRDADDR], 2147767344 => [:TIOCGPTN], 91 => [:EPROTOTYPE, :_SC_XOPEN_UNIX, :SYS_capset], 62 => [:ETIME, :_SC_PII_INTERNET_DGRAM, :SO_BINDTOIFINDEX, :SYS_lseek], 21523 => [:TIOCGWINSZ], 244 => [:_SC_TRACE_SYS_MAX], 21585 => [:FIOCLEX], 1112 => [:_CS_XBS5_LPBIG_OFFBIG_CFLAGS], 150 => [:_SC_MULTI_PROCESS, :SYS_getresgid], 205 => [:SYS_getpeername], 122 => [:EDQUOT, :_SC_NL_NMAX, :SYS_sched_setaffinity], 1133 => [:_CS_POSIX_V7_ILP32_OFF32_LDFLAGS], 58 => [:_SC_POLL, :SCM_TIMESTAMPING_PKTINFO, :SYS_vhangup], 21586 => [:FIOASYNC], 199 => [:_SC_LEVEL4_CACHE_LINESIZE, :SYS_socketpair], 434 => [:SYS_pidfd_open], 21539 => [:TIOCSETD], 173 => [:_SC_SYMLOOP_MAX, :SYS_getppid], 21556 => [:TCSETXF], 256 => [:LOGIN_NAME_MAX, :CLONE_VM, :ADJ_SETOFFSET, :STA_PPSSIGNAL, :TIOCM_DSR, :ICRNL, :PARENB, :NLDLY, :NL1, :TOSTOP, :O_NOCTTY, :AT_SYMLINK_NOFOLLOW, :S_IRUSR, :POLLWRNORM, :EPOLLWRNORM, :S_IREAD, :STATX_INO, :MSG_WAITALL, :IFF_PROMISC], 35105 => [:SIOCGIFMTU], 188 => [:_SC_LEVEL1_DCACHE_SIZE, :SYS_msgrcv], 277 => [:SOL_IUCV, :SYS_seccomp], 1149 => [:_CS_V7_ENV], 21557 => [:TCSETXW], 98 => [:EADDRINUSE, :_SC_XOPEN_XPG2, :SYS_futex], 235 => [:_SC_IPV6, :SYS_mbind], 204 => [:SYS_getsockname], 4194304 => [:CLONE_DETACHED], 35088 => [:SIOCGIFNAME], 21508 => [:TCSETSF], 21520 => [:TIOCSPGRP], 76 => [:ENOTUNIQ, :_SC_THREAD_THREADS_MAX, :SYS_splice], 35128 => [:SIOCGIFCOUNT], 34 => [:ERANGE, :_SC_SIGQUEUE_MAX, :PF_ISDN, :AF_ISDN, :SO_PASSSEC, :SIGRTMIN, :SYS_mkdirat], 50 => [:ENOCSI, :_SC_2_FORT_RUN, :SO_ATTACH_BPF, :SYS_fchdir], 243 => [:_SC_TRACE_NAME_MAX, :SYS_recvmmsg], 65536 => [:NGROUPS_MAX, :XATTR_SIZE_MAX, :XATTR_LIST_MAX, :CLONE_THREAD, :EXTPROC, :O_DIRECT, :MSG_WAITFORONE], 1007 => [:_CS_LFS64_LINTFLAGS], 194 => [:_SC_LEVEL3_CACHE_SIZE, :SYS_shmget], 1052672 => [:O_SYNC, :O_FSYNC, :O_RSYNC, :FFSYNC], 42 => [:ENOMSG, :_SC_EXPR_NEST_MAX, :PF_QIPCRTR, :AF_QIPCRTR, :SO_PEEK_OFF, :SYS_nfsservctl], 87 => [:EUSERS, :_SC_ATEXIT_MAX, :SYS_timerfd_gettime], 132 => [:ERFKILL, :_SC_ADVISORY_INFO, :SYS_sigaltstack], 1073676288 => [:IOCSIZE_MASK], 140 => [:_SC_DEVICE_IO, :SYS_setpriority], 167 => [:_SC_USER_GROUPS_R, :SYS_prctl], 169 => [:_SC_2_PBS_ACCOUNTING, :SYS_gettimeofday], 248 => [:_SC_THREAD_ROBUST_PRIO_PROTECT], 202 => [:SYS_accept], 33554432 => [:CLONE_NEWCGROUP], 442 => [:SYS_mount_setattr], 35092 => [:SIOCSIFFLAGS], 35096 => [:SIOCSIFDSTADDR], 180 => [:_SC_HOST_NAME_MAX, :SYS_mq_open], 255 => [:UCHAR_MAX, :CHAR_MAX, :MAX_CANON, :MAX_INPUT, :NAME_MAX, :XATTR_NAME_MAX, :COLL_WEIGHTS_MAX, :CSIGNAL, :UINT8_MAX, :UINT_LEAST8_MAX, :UINT_FAST8_MAX, :SOL_RAW], 35121 => [:SIOCADDMULTI], 160 => [:_SC_SPORADIC_SERVER, :SYS_uname], 289 => [:SYS_pkey_alloc], 49 => [:EUNATCH, :_SC_2_FORT_DEV, :SO_INCOMING_CPU, :SYS_chdir], 3412 => [:PDP_ENDIAN], 291 => [:SYS_statx], -1 => [:SI_QUEUE, :WAIT_ANY], 35155 => [:SIOCDARP], 106 => [:EISCONN, :_SC_LONG_BIT, :SYS_delete_module], 94 => [:ESOCKTNOSUPPORT, :_SC_XOPEN_SHM, :SYS_exit_group], 2047 => [:STATX_BASIC_STATS], 428 => [:SYS_open_tree], 1032 => [:F_GETPIPE_SZ], 102 => [:ENETRESET, :_SC_CHAR_MAX, :SYS_getitimer], 128 => [:EKEYREVOKED, :CLONE_NEWTIME, :ADJ_TAI, :MOD_TAI, :STA_FREQHOLD, :TIOCM_RNG, :TIOCM_RI, :CREAD, :IGNCR, :OFDEL, :NOFLSH, :O_EXCL, :LOCK_WRITE, :MAX_HANDLE_SZ, :S_IWUSR, :POLLRDBAND, :EPOLLRDBAND, :_SC_XBS5_LPBIG_OFFBIG, :S_IWRITE, :STATX_CTIME, :MSG_EOR, :IFF_NOARP, :SI_KERNEL, :WCOREFLAG, :SYS_restart_syscall, :POSIX_SPAWN_SETSID], 32768 => [:MQ_PRIO_MAX, :CLONE_PARENT, :STA_CLK, :IEXTEN, :FFDLY, :FF1, :O_NOFOLLOW, :AT_RECURSIVE, :S_IFREG, :MSG_MORE, :IFF_DYNAMIC], 70 => [:ECOMM, :_SC_GETPW_R_SIZE_MAX, :SO_BUSY_POLL_BUDGET, :SYS_pwritev], 2097152 => [:CLONE_CHILD_CLEARTID, :O_PATH, :STATX_ATTR_DAX], 225 => [:SYS_swapoff], 21 => [:EISDIR, :CKILL, :_SC_SEMAPHORES, :PF_RDS, :AF_RDS, :SO_SNDTIMEO_OLD, :SO_SNDTIMEO, :SIGTTIN, :SYS_epoll_ctl], 229 => [:SYS_munlock], 38 => [:ENOSYS, :F_OFD_SETLKW, :_SC_BC_SCALE_MAX, :PF_ALG, :AF_ALG, :SO_PROTOCOL, :SYS_renameat], 163 => [:_SC_SYSTEM_DATABASE_R, :SYS_getrlimit], 440 => [:SYS_process_madvise], 131 => [:ENOTRECOVERABLE, :_SC_XOPEN_REALTIME_THREADS, :SYS_tgkill], 192 => [:LOCK_RW, :_SC_LEVEL2_CACHE_ASSOC, :SYS_semtimedop], 1143 => [:_CS_POSIX_V7_LP64_OFF64_LINTFLAGS], 1135 => [:_CS_POSIX_V7_ILP32_OFF32_LINTFLAGS], 1108 => [:_CS_XBS5_LP64_OFF64_CFLAGS], 65535 => [:USHRT_MAX, :UINT16_MAX, :UINT_LEAST16_MAX], -1073741824 => [:IOC_INOUT], 35102 => [:SIOCSIFMETRIC], -3 => [:SI_MESGQ], 221 => [:SYS_execve], 53 => [:EBADR, :_SC_PII, :SO_CNX_ADVICE, :SYS_fchmodat], 1122 => [:_CS_POSIX_V6_ILP32_OFFBIG_LIBS], 47 => [:EL3RST, :_SC_2_C_BIND, :SO_MAX_PACING_RATE, :SYS_fallocate], 175 => [:_SC_2_PBS_CHECKPOINT, :SYS_geteuid], 1073741823 => [:UTIME_NOW], 21527 => [:TIOCMBIC], 1048576 => [:CLONE_PARENT_SETTID, :STATX_ATTR_VERITY], 21543 => [:TIOCSBRK], 286 => [:SOL_SMC, :SYS_preadv2], 3 => [:ESRCH, :SCHED_BATCH, :CLOCK_THREAD_CPUTIME_ID, :PTHREAD_MUTEX_ADAPTIVE_NP, :N_PPP, :CINTR, :VKILL, :B110, :TCION, :O_ACCMODE, :F_GETFL, :RWH_WRITE_LIFE_MEDIUM, :POSIX_FADV_WILLNEED, :F_TEST, :EPOLL_CTL_MOD, :SEEK_DATA, :_PC_NAME_MAX, :_SC_NGROUPS_MAX, :_CS_GNU_LIBPTHREAD_VERSION, :PF_AX25, :AF_AX25, :SO_TYPE, :SOCK_RAW, :SIGQUIT, :ILL_ILLADR, :FPE_FLTDIV, :SEGV_BNDERR, :BUS_OBJERR, :TRAP_BRANCH, :CLD_DUMPED, :POLL_MSG, :P_PIDFD, :SYS_io_cancel], 35103 => [:SIOCGIFMEM], 96 => [:EPFNOSUPPORT, :_SC_2_C_VERSION, :SYS_set_tid_address], 178 => [:_SC_V6_LP64_OFF64, :SYS_gettid], 35076 => [:SIOCGPGRP], 149 => [:_SC_MONOTONIC_CLOCK, :SYS_setresgid], 155 => [:_SC_REGEXP, :SYS_getpgid], 181 => [:_SC_TRACE, :SYS_mq_unlink], 1148 => [:_CS_V6_ENV], 524288 => [:CLONE_SETTLS, :O_CLOEXEC, :EPOLL_CLOEXEC, :SOCK_CLOEXEC], 1398162689 => [:SVE_MAGIC], 65 => [:ENOPKG, :_SC_PII_OSI_M, :SO_TIMESTAMPING_NEW, :NSIG, :SYS_readv], 21506 => [:TCSETS], 65280 => [:STA_RONLY], 446 => [:SYS_landlock_restrict_self], 293 => [:SYS_rseq], 35083 => [:SIOCADDRT], 1115 => [:_CS_XBS5_LPBIG_OFFBIG_LINTFLAGS])
+constants = Dict(56 => [:EBADRQC, :S_IRWXG, :_SC_PII_INTERNET, :SO_INCOMING_NAPI_ID, :SYS_openat], 35 => [:EDEADLK, :EDEADLOCK, :_SC_TIMER_MAX, :PF_PHONET, :AF_PHONET, :SO_TIMESTAMPNS_OLD, :SO_TIMESTAMPNS, :SCM_TIMESTAMPNS, :SYS_unlinkat], 1107 => [:_CS_XBS5_ILP32_OFFBIG_LINTFLAGS], 1144 => [:_CS_POSIX_V7_LPBIG_OFFBIG_CFLAGS], 425 => [:SYS_io_uring_setup], 1033 => [:F_ADD_SEALS], 60 => [:ENOSTR, :_SC_UIO_MAXIOV, :_SC_IOV_MAX, :SO_ZEROCOPY, :SYS_quotactl], 220 => [:SYS_clone], 429 => [:SYS_move_mount], 1074025526 => [:TIOCSIG], 21530 => [:TIOCSSOFTCAR], 67 => [:ENOLINK, :_SC_THREADS, :SO_SNDTIMEO_NEW, :SYS_pread64], 4321 => [:BIG_ENDIAN], -5 => [:SI_SIGIO], 215 => [:SYS_munmap], 73 => [:EDOTDOT, :_SC_THREAD_DESTRUCTOR_ITERATIONS, :SO_RESERVE_MEM, :SYS_ppoll], 21531 => [:FIONREAD, :TIOCINQ], 35185 => [:SIOCSIFMAP], 115 => [:EINPROGRESS, :_SC_UCHAR_MAX, :SYS_clock_nanosleep], 35107 => [:SIOCSIFNAME], 112 => [:EHOSTDOWN, :_SC_SCHAR_MIN, :SYS_clock_settime], 185 => [:_SC_LEVEL1_ICACHE_SIZE, :SYS_mq_getsetattr], 1123 => [:_CS_POSIX_V6_ILP32_OFFBIG_LINTFLAGS], 268435456 => [:CLONE_NEWUSER, :EPOLLEXCLUSIVE, :SA_RESTART], 86 => [:ESTRPIPE, :_SC_AVPHYS_PAGES, :SYS_timerfd_settime], 168 => [:_SC_2_PBS, :SYS_getcpu], 431 => [:SYS_fsconfig], 263 => [:SOL_PACKET, :SYS_fanotify_mark], 9223372036854775807 => [:LONG_MAX, :LLONG_MAX, :LONG_LONG_MAX, :SSIZE_MAX, :INT64_MAX, :INT_LEAST64_MAX, :INT_FAST16_MAX, :INT_FAST32_MAX, :INT_FAST64_MAX, :INTPTR_MAX, :INTMAX_MAX, :PTRDIFF_MAX], 207 => [:SYS_recvfrom], 242 => [:_SC_TRACE_EVENT_NAME_MAX, :SYS_accept4], 183 => [:_SC_TRACE_INHERIT, :SYS_mq_timedreceive], 2147767346 => [:TIOCGDEV], 224 => [:SYS_swapon], 1037 => [:F_GET_FILE_RW_HINT], 1131 => [:_CS_POSIX_V6_LPBIG_OFFBIG_LINTFLAGS], 177 => [:_SC_V6_ILP32_OFFBIG, :SYS_getegid], 430 => [:SYS_fsopen], 12 => [:ENOMEM, :N_SMSBLOCK, :VREPRINT, :B4800, :_PC_SOCK_MAXBUF, :_SC_ASYNCHRONOUS_IO, :PF_DECnet, :AF_DECnet, :SO_PRIORITY, :SIGUSR2, :SYS_llistxattr], 536870912 => [:CLONE_NEWPID, :EPOLLWAKEUP, :MSG_FASTOPEN, :SA_INTERRUPT], 35125 => [:SIOCGIFPFLAGS], 75 => [:EOVERFLOW, :_SC_THREAD_STACK_MIN, :SO_RCVMARK, :SYS_vmsplice], 4096 => [:FILENAME_MAX, :PATH_MAX, :PIPE_BUF, :NL_ARGMAX, :CLONE_PIDFD, :ADJ_MICRO, :MOD_MICRO, :STA_CLOCKERR, :IXOFF, :TAB2, :CBAUDEX, :FLUSHO, :O_DSYNC, :AT_EMPTY_PATH, :S_IFIFO, :POLLREMOVE, :STATX_MNT_ID, :STATX_ATTR_AUTOMOUNT, :SOMAXCONN, :MSG_RST, :IFF_MULTICAST], -32768 => [:SHRT_MIN, :INT16_MIN, :INT_LEAST16_MIN], 23 => [:ENFILE, :CWERASE, :_SC_AIO_LISTIO_MAX, :PF_IRDA, :AF_IRDA, :SO_SECURITY_ENCRYPTION_TRANSPORT, :SIGURG, :SYS_dup], 111 => [:ECONNREFUSED, :_SC_SCHAR_MAX, :SYS_timer_delete], 35091 => [:SIOCGIFFLAGS], 35184 => [:SIOCGIFMAP], 11554 => [:TTYDEF_IFLAG], 41 => [:_SC_EQUIV_CLASS_MAX, :PF_KCM, :AF_KCM, :SO_WIFI_STATUS, :SCM_WIFI_STATUS, :SYS_pivot_root], 264 => [:SOL_ATM, :SYS_name_to_handle_at], 68 => [:EADV, :_SC_THREAD_SAFE_FUNCTIONS, :SO_DETACH_REUSEPORT_BPF, :SYS_pwrite64], 1412850501 => [:ZA_MAGIC], 82 => [:ELIBMAX, :_SC_THREAD_PROCESS_SHARED, :SYS_fsync], -2 => [:SI_TIMER], 130 => [:EOWNERDEAD, :_SC_XOPEN_REALTIME, :SYS_tkill], 125 => [:ECANCELED, :_SC_XBS5_ILP32_OFF32, :SYS_sched_get_priority_max], 4109 => [:B3000000], 77 => [:EBADFD, :_SC_THREAD_ATTR_STACKADDR, :SYS_tee], 1002 => [:_CS_LFS_LIBS], 1113 => [:_CS_XBS5_LPBIG_OFFBIG_LDFLAGS], 172 => [:_SC_2_PBS_TRACK, :SYS_getpid], 71 => [:EPROTO, :_SC_LOGIN_NAME_MAX, :SO_NETNS_COOKIE, :SYS_sendfile], 35104 => [:SIOCSIFMEM], 66 => [:EREMOTE, :_SC_T_IOV_MAX, :SO_RCVTIMEO_NEW, :SYS_writev], 49152 => [:S_IFSOCK], 103 => [:ECONNABORTED, :_SC_CHAR_MIN, :SYS_setitimer], 1036 => [:F_SET_RW_HINT], 59 => [:EBFONT, :_SC_SELECT, :SO_PEERGROUPS, :SYS_pipe2], 280 => [:SOL_NFC, :SYS_bpf], 208 => [:SYS_setsockopt], 1109 => [:_CS_XBS5_LP64_OFF64_LDFLAGS], 35355 => [:TTYDEF_LFLAG], 26 => [:ETXTBSY, :CSUSP, :_SC_DELAYTIMER_MAX, :PF_LLC, :AF_LLC, :SO_ATTACH_FILTER, :SO_GET_FILTER, :SIGVTALRM, :SYS_inotify_init1], 211 => [:SYS_sendmsg], 127 => [:EKEYEXPIRED, :SCHAR_MAX, :CERASE, :INT8_MAX, :INT_LEAST8_MAX, :INT_FAST8_MAX, :_SC_XBS5_LP64_OFF64, :SYS_sched_rr_get_interval], 116 => [:ESTALE, :_SC_UINT_MAX, :SYS_syslog], 100 => [:ENETDOWN, :_SC_XOPEN_XPG4, :SYS_get_robust_list], 21559 => [:TIOCVHANGUP], 35113 => [:SIOCGIFSLAVE], 79 => [:ELIBACC, :_SC_THREAD_PRIORITY_SCHEDULING, :SYS_newfstatat], 1102 => [:_CS_XBS5_ILP32_OFF32_LIBS], 1105 => [:_CS_XBS5_ILP32_OFFBIG_LDFLAGS], 279 => [:SOL_ALG, :SYS_memfd_create], 1073741824 => [:SCHED_RESET_ON_FORK, :CLONE_NEWNET, :IOC_IN, :CMSPAR, :EPOLLONESHOT, :MSG_CMSG_CLOEXEC, :SA_NODEFER, :SA_NOMASK], 195 => [:_SC_LEVEL3_CACHE_ASSOC, :SYS_shmctl], 230 => [:SYS_mlockall], 141 => [:_SC_DEVICE_SPECIFIC, :SYS_getpriority], 21521 => [:TIOCOUTQ], 278 => [:SOL_CAIF, :SYS_getrandom], 450 => [:SYS_set_mempolicy_home_node], 4098 => [:B115200], 1142 => [:_CS_POSIX_V7_LP64_OFF64_LIBS], 21529 => [:TIOCGSOFTCAR], 135 => [:_SC_C_LANG_SUPPORT, :SYS_rt_sigprocmask], 1117 => [:_CS_POSIX_V6_ILP32_OFF32_LDFLAGS], 8192 => [:BUFSIZ, :CLONE_PTRACE, :ADJ_NANO, :MOD_NANO, :STA_NANO, :IMAXBEL, :BSDLY, :BS1, :O_ASYNC, :FASYNC, :AT_STATX_FORCE_SYNC, :S_IFCHR, :POLLRDHUP, :EPOLLRDHUP, :STATX_DIOALIGN, :STATX_ATTR_MOUNT_ROOT, :MSG_ERRQUEUE, :IFF_PORTSEL, :SVE_VL_MAX], 138 => [:_SC_CPUTIME, :SYS_rt_sigqueueinfo], 222 => [:SYS_mmap], 1139 => [:_CS_POSIX_V7_ILP32_OFFBIG_LINTFLAGS], 61440 => [:S_IFMT], 21512 => [:TCSETAF], 1140 => [:_CS_POSIX_V7_LP64_OFF64_CFLAGS], 107 => [:ENOTCONN, :_SC_WORD_BIT, :SYS_timer_create], 46 => [:EL3HLT, :_SC_2_VERSION, :PF_MAX, :AF_MAX, :SO_BUSY_POLL, :SYS_ftruncate], 276 => [:SOL_RDS, :SYS_renameat2], 57 => [:EBADSLT, :_SC_PII_OSI, :SO_COOKIE, :SYS_close], 32767 => [:SHRT_MAX, :RE_DUP_MAX, :INT16_MAX, :INT_LEAST16_MAX], -128 => [:SCHAR_MIN, :INT8_MIN, :INT_LEAST8_MIN, :INT_FAST8_MIN], 152 => [:_SC_NETWORKING, :SYS_setfsgid], 247 => [:_SC_THREAD_ROBUST_PRIO_INHERIT], 170 => [:_SC_2_PBS_LOCATE, :SYS_settimeofday], 511 => [:ACCESSPERMS], 1000000 => [:CLOCKS_PER_SEC], 35126 => [:SIOCDIFADDR], 129 => [:EKEYREJECTED, :_SC_XOPEN_LEGACY, :SYS_kill], 35139 => [:SIOCSIFTXQLEN], 21590 => [:TIOCGLCKTRMIOS], 238 => [:_SC_V7_ILP32_OFFBIG, :SYS_migrate_pages], 250 => [:_SC_SIGSTKSZ], 35123 => [:SIOCGIFINDEX, :SIOGIFINDEX], 78 => [:EREMCHG, :_SC_THREAD_ATTR_STACKSIZE, :SYS_readlinkat], 448 => [:S_IRWXU, :SYS_process_mrelease], 438 => [:DEFFILEMODE, :SYS_pidfd_getfd], 133 => [:EHWPOISON, :_SC_BARRIERS, :SYS_rt_sigsuspend], 72 => [:EMULTIHOP, :_SC_TTY_NAME_MAX, :SO_BUF_LOCK, :SYS_pselect6], 436 => [:SYS_close_range], 1130 => [:_CS_POSIX_V6_LPBIG_OFFBIG_LIBS], 184 => [:_SC_TRACE_LOG, :SYS_mq_notify], 1000 => [:BC_STRING_MAX, :_CS_LFS_CFLAGS], 1 => [:EPERM, :SEEK_CUR, :RENAME_NOREPLACE, :BOOL_MAX, :BOOL_WIDTH, :WNOHANG, :EXIT_FAILURE, :MB_CUR_MAX, :SCHED_FIFO, :CLOCK_MONOTONIC, :TIMER_ABSTIME, :ADJ_OFFSET, :MOD_OFFSET, :STA_PLL, :TIME_UTC, :PTHREAD_CREATE_DETACHED, :PTHREAD_MUTEX_RECURSIVE_NP, :PTHREAD_MUTEX_RECURSIVE, :PTHREAD_MUTEX_ROBUST, :PTHREAD_MUTEX_ROBUST_NP, :PTHREAD_PRIO_INHERIT, :PTHREAD_RWLOCK_PREFER_WRITER_NP, :PTHREAD_EXPLICIT_SCHED, :PTHREAD_SCOPE_PROCESS, :PTHREAD_PROCESS_SHARED, :PTHREAD_CANCEL_DISABLE, :PTHREAD_CANCEL_ASYNCHRONOUS, :TIOCPKT_FLUSHREAD, :TIOCSER_TEMT, :TIOCM_LE, :N_SLIP, :OPOST, :ISIG, :CMIN, :VQUIT, :IGNBRK, :B50, :TCOON, :TCOFLUSH, :TCSADRAIN, :O_WRONLY, :F_GETFD, :FD_CLOEXEC, :F_WRLCK, :LOCK_SH, :DN_ACCESS, :F_SEAL_SEAL, :RWH_WRITE_LIFE_NONE, :POSIX_FADV_RANDOM, :SYNC_FILE_RANGE_WAIT_BEFORE, :SPLICE_F_MOVE, :FALLOC_FL_KEEP_SIZE, :S_IXOTH, :X_OK, :F_LOCK, :F_OWNER_PID, :POLLIN, :EPOLL_CTL_ADD, :EPOLLIN, :STDOUT_FILENO, :L_INCR, :_PC_MAX_CANON, :_SC_CHILD_MAX, :_CS_V6_WIDTH_RESTRICTED_ENVS, :STATX_TYPE, :PF_LOCAL, :PF_UNIX, :PF_FILE, :AF_LOCAL, :AF_UNIX, :AF_FILE, :SOL_SOCKET, :SO_DEBUG, :SOCK_STREAM, :MSG_OOB, :SCM_RIGHTS, :SHUT_WR, :IFF_UP, :SIGHUP, :SA_NOCLDSTOP, :SIG_UNBLOCK, :SVE_SIG_FLAG_SM, :SVE_VQ_MIN, :ILL_ILLOPC, :FPE_INTDIV, :SEGV_MAPERR, :BUS_ADRALN, :TRAP_BRKPT, :CLD_EXITED, :POLL_IN, :SIGEV_NONE, :ITIMER_VIRTUAL, :SS_ONSTACK, :P_PID, :SYS_io_destroy, :POSIX_SPAWN_RESETIDS], 35111 => [:SIOCGIFHWADDR], 22 => [:EINVAL, :CLNEXT, :_SC_SHARED_MEMORY_OBJECTS, :PF_SNA, :AF_SNA, :SO_SECURITY_AUTHENTICATION, :SIGTTOU, :SYS_epoll_pwait], 137 => [:_SC_CLOCK_SELECTION, :SYS_rt_sigtimedwait], 154 => [:_SC_SPIN_LOCKS, :SYS_setpgid], 435 => [:SYS_clone3], 427 => [:SYS_io_uring_register], 237 => [:_SC_V7_ILP32_OFF32, :SYS_set_mempolicy], 238328 => [:TMP_MAX], 1006 => [:_CS_LFS64_LIBS], 35136 => [:SIOCGIFBR], 288 => [:SYS_pkey_mprotect], 21588 => [:TIOCSERGWILD], 206 => [:SYS_sendto], 270 => [:SOL_NETLINK, :SYS_process_vm_readv], 33 => [:EDOM, :_SC_SEM_VALUE_MAX, :PF_RXRPC, :AF_RXRPC, :SO_RCVBUFFORCE, :SYS_mknodat], 21537 => [:FIONBIO], 21538 => [:TIOCNOTTY], 35084 => [:SIOCDELRT], 35090 => [:SIOCGIFCONF], -100 => [:AT_FDCWD], 40 => [:ELOOP, :_SC_COLL_WEIGHTS_MAX, :PF_VSOCK, :AF_VSOCK, :SO_RXQ_OVFL, :SYS_mount], 113 => [:EHOSTUNREACH, :_SC_SHRT_MAX, :SYS_clock_gettime], 231 => [:SYS_munlockall], 432 => [:SYS_fsmount], 2147767353 => [:TIOCGPTLCK], 1034 => [:F_GET_SEALS], 245 => [:_SC_TRACE_USER_EVENT_MAX], 1138 => [:_CS_POSIX_V7_ILP32_OFFBIG_LIBS], 283 => [:SOL_XDP, :SYS_membarrier], 165 => [:_SC_TYPED_MEMORY_OBJECTS, :SYS_getrusage], 142 => [:_SC_DEVICE_SPECIFIC_R, :SYS_reboot], -2147483648 => [:DN_MULTISHOT, :INT32_MIN, :INT_LEAST32_MIN, :SIG_ATOMIC_MIN], 1111 => [:_CS_XBS5_LP64_OFF64_LINTFLAGS], 5 => [:EIO, :SCHED_IDLE, :CLOCK_REALTIME_COARSE, :N_AX25, :VTIME, :B150, :F_GETLK64, :F_GETLK, :RWH_WRITE_LIFE_EXTREME, :POSIX_FADV_NOREUSE, :_PC_PIPE_BUF, :_SC_STREAM_MAX, :_CS_V7_WIDTH_RESTRICTED_ENVS, :PF_APPLETALK, :AF_APPLETALK, :SO_DONTROUTE, :SOCK_SEQPACKET, :SIGTRAP, :ILL_PRVOPC, :FPE_FLTUND, :SEGV_ACCADI, :BUS_MCEERR_AO, :TRAP_UNK, :CLD_STOPPED, :POLL_PRI, :SYS_setxattr], 269418496 => [:CIBAUD], 55 => [:ENOANO, :_SC_PII_SOCKET, :SO_MEMINFO, :SYS_fchown], 114 => [:EALREADY, :_SC_SHRT_MIN, :SYS_clock_getres], 265 => [:SOL_AAL, :SYS_open_by_handle_at], 21584 => [:FIONCLEX], 4100 => [:B460800], 4111 => [:CBAUD, :B4000000], 2147483648 => [:EPOLLET, :STATX__RESERVED, :SA_RESETHAND, :SA_ONESHOT], 40961 => [:ADJ_OFFSET_SS_READ], 1119 => [:_CS_POSIX_V6_ILP32_OFF32_LINTFLAGS], 136 => [:_SC_C_LANG_SUPPORT_R, :SYS_rt_sigpending], 117 => [:EUCLEAN, :_SC_ULONG_MAX, :SYS_ptrace], 45 => [:EL2NSYNC, :_SC_CHARCLASS_NAME_MAX, :PF_MCTP, :AF_MCTP, :SO_SELECT_ERR_QUEUE, :SYS_truncate], 1024 => [:PTHREAD_KEYS_MAX, :IOV_MAX, :FD_SETSIZE, :CLONE_FILES, :CPU_SETSIZE, :STA_PPSWANDER, :IXON, :HUPCL, :CR2, :ECHOPRT, :O_APPEND, :F_SETLEASE, :FAPPEND, :AT_SYMLINK_FOLLOW, :S_ISGID, :POLLMSG, :EPOLLMSG, :STATX_BLOCKS, :MSG_SYN, :IFF_MASTER], 1026 => [:F_NOTIFY], 145 => [:_SC_PIPE, :SYS_setreuid], 282 => [:SOL_TLS, :SYS_userfaultfd], 449 => [:SYS_futex_waitv], 444 => [:SYS_landlock_create_ruleset], 21532 => [:TIOCLINUX], 40960 => [:S_IFLNK], 275 => [:SOL_PNPIPE, :SYS_sched_getattr], 35156 => [:SIOCGARP], -60 => [:SI_ASYNCNL], 1146 => [:_CS_POSIX_V7_LPBIG_OFFBIG_LIBS], 1127 => [:_CS_POSIX_V6_LP64_OFF64_LINTFLAGS], 21594 => [:TIOCSERGETMULTI], 35101 => [:SIOCGIFMETRIC], 35157 => [:SIOCSARP], 16384 => [:CLONE_VFORK, :ADJ_TICK, :MOD_CLKB, :STA_MODE, :IUTF8, :VTDLY, :VT1, :PENDIN, :O_DIRECTORY, :AT_STATX_DONT_SYNC, :S_IFDIR, :MSG_NOSIGNAL, :IFF_AUTOMEDIA], 4102 => [:B576000], -4 => [:SI_ASYNCIO], 158 => [:_SC_SIGNALS, :SYS_getgroups], 437 => [:SYS_openat2], 176 => [:_SC_V6_ILP32_OFF32, :SYS_getgid], 218 => [:SYS_request_key], -9223372036854775808 => [:LONG_MIN, :LLONG_MIN, :LONG_LONG_MIN, :INT64_MIN, :INT_LEAST64_MIN, :INT_FAST16_MIN, :INT_FAST32_MIN, :INT_FAST64_MIN, :INTPTR_MIN, :INTMAX_MIN, :PTRDIFF_MIN], 35094 => [:SIOCSIFADDR], 28 => [:ENOSPC, :CQUIT, :_SC_MQ_PRIO_MAX, :PF_MPLS, :AF_MPLS, :SO_PEERNAME, :SIGWINCH, :SYS_inotify_rm_watch], 35108 => [:SIOCSIFHWADDR], 4103 => [:B921600], 148 => [:_SC_FILE_SYSTEM, :SYS_getresuid], 92 => [:ENOPROTOOPT, :_SC_XOPEN_CRYPT, :SYS_personality], 21545 => [:TIOCGSID], 21551 => [:TIOCSRS485], 21592 => [:TIOCSERGSTRUCT], 36 => [:ENAMETOOLONG, :F_OFD_GETLK, :_SC_BC_BASE_MAX, :PF_IEEE802154, :AF_IEEE802154, :SO_MARK, :SYS_symlinkat], 21509 => [:TCGETA], 21505 => [:TCGETS], 2147767352 => [:TIOCGPKT], 118 => [:ENOTNAM, :_SC_USHRT_MAX, :SYS_sched_setparam], 1004 => [:_CS_LFS64_CFLAGS], 162 => [:_SC_SYSTEM_DATABASE, :SYS_setdomainname], 84 => [:EILSEQ, :_SC_NPROCESSORS_ONLN, :SYS_sync_file_range], 1147 => [:_CS_POSIX_V7_LPBIG_OFFBIG_LINTFLAGS], 7 => [:E2BIG, :CLOCK_BOOTTIME, :N_6PACK, :VSWTC, :B300, :F_SETLKW64, :F_SETLKW, :SYNC_FILE_RANGE_WRITE_AND_WAIT, :S_IRWXO, :_PC_NO_TRUNC, :_SC_JOB_CONTROL, :PF_BRIDGE, :AF_BRIDGE, :SO_SNDBUF, :SIGBUS, :ILL_COPROC, :FPE_FLTINV, :SEGV_ADIPERR, :SYS_fsetxattr], 25 => [:ENOTTY, :CDSUSP, :_SC_AIO_PRIO_DELTA_MAX, :PF_WANPIPE, :AF_WANPIPE, :SO_BINDTODEVICE, :SIGXFSZ, :SYS_fcntl], 95 => [:EOPNOTSUPP, :ENOTSUP, :_SC_2_CHAR_TERM, :SYS_waitid], 203 => [:SYS_connect], 1001 => [:_CS_LFS_LDFLAGS], 35093 => [:SIOCGIFADDR], 1128 => [:_CS_POSIX_V6_LPBIG_OFFBIG_CFLAGS], 35122 => [:SIOCDELMULTI], 292 => [:SYS_io_pgetevents], 232 => [:SYS_mincore], 4101 => [:B500000], 93 => [:EPROTONOSUPPORT, :_SC_XOPEN_ENH_I18N, :SYS_exit], 1179680769 => [:FPSIMD_MAGIC], 35200 => [:SIOCADDDLCI], 18 => [:EXDEV, :CREPRINT, :CRPRNT, :_PC_ALLOC_SIZE_MIN, :_SC_MEMLOCK_RANGE, :PF_ASH, :AF_ASH, :SO_RCVLOWAT, :SIGCONT, :SYS_lookup_dcookie], 240 => [:_SC_V7_LPBIG_OFFBIG, :SYS_rt_tgsigqueueinfo], 147 => [:_SC_FILE_LOCKING, :SYS_setresuid], 157 => [:_SC_SHELL, :SYS_setsid], 16 => [:EBUSY, :FOPEN_MAX, :MB_LEN_MAX, :SHRT_WIDTH, :USHRT_WIDTH, :ADJ_STATUS, :MOD_STATUS, :STA_INS, :IOCSIZE_SHIFT, :TIOCPKT_NOSTOP, :TIOCM_SR, :ECHOE, :VEOL2, :INPCK, :ONOCR, :CS6, :F_GETOWN_EX, :DN_RENAME, :F_SEAL_FUTURE_WRITE, :FALLOC_FL_ZERO_RANGE, :S_IWGRP, :POLLHUP, :INT16_WIDTH, :UINT16_WIDTH, :INT_LEAST16_WIDTH, :UINT_LEAST16_WIDTH, :EPOLLHUP, :_PC_REC_MIN_XFER_SIZE, :_SC_MAPPED_FILES, :STATX_GID, :STATX_ATTR_IMMUTABLE, :PF_NETLINK, :PF_ROUTE, :AF_NETLINK, :AF_ROUTE, :SO_PASSCRED, :IF_NAMESIZE, :IFNAMSIZ, :MSG_PROXY, :IFF_POINTOPOINT, :SIGSTKFLT, :SVE_VQ_BYTES, :SVE_VL_MIN, :SVE_NUM_PREGS, :SVE_SIG_ZREGS_OFFSET, :SYS_fremovexattr, :POSIX_SPAWN_SETSCHEDPARAM], 21569 => [:TIOCGPTPEER], 1132 => [:_CS_POSIX_V7_ILP32_OFF32_CFLAGS], 287 => [:SYS_pwritev2], 19 => [:ENODEV, :CSTOP, :_PC_SYMLINK_MAX, :_SC_MEMORY_PROTECTION, :PF_ECONET, :AF_ECONET, :SO_SNDLOWAT, :SIGSTOP, :SYS_eventfd2], 44 => [:ECHRNG, :_SC_RE_DUP_MAX, :PF_XDP, :AF_XDP, :SO_LOCK_FILTER, :SYS_fstatfs], 266 => [:SOL_IRDA, :SYS_clock_adjtime], 31 => [:EMLINK, :_SC_RTSIG_MAX, :PF_BLUETOOTH, :AF_BLUETOOTH, :SO_PEERSEC, :SIGSYS, :SYS_ioprio_get], 217 => [:SYS_add_key], 146 => [:_SC_FILE_ATTRIBUTES, :SYS_setuid], 74 => [:EBADMSG, :_SC_THREAD_KEYS_MAX, :SO_TXREHASH, :SYS_signalfd4], 21589 => [:TIOCSERSWILD], 35124 => [:SIOCSIFPFLAGS], 61 => [:ENODATA, :_SC_PII_INTERNET_STREAM, :SO_TXTIME, :SCM_TXTIME, :SYS_getdents64], 29 => [:ESPIPE, :_SC_VERSION, :PF_CAN, :AF_CAN, :SO_TIMESTAMP_OLD, :SO_TIMESTAMP, :SCM_TIMESTAMP, :SIGPOLL, :SIGIO, :SYS_ioctl], 1536 => [:CRDLY, :CR3], 2147483647 => [:INT_MAX, :DELAYTIMER_MAX, :SEM_VALUE_MAX, :NL_MSGMAX, :NL_NMAX, :NL_SETMAX, :NL_TEXTMAX, :RAND_MAX, :INT32_MAX, :INT_LEAST32_MAX, :SIG_ATOMIC_MAX], 212 => [:SYS_recvmsg], 424 => [:SYS_pidfd_send_signal], 228 => [:SYS_mlock], 6149 => [:TTYDEF_OFLAG], 159 => [:_SC_SPAWN, :SYS_setgroups], 193 => [:_SC_LEVEL2_CACHE_LINESIZE, :SYS_semop], 4107 => [:B2000000], 226 => [:SYS_mprotect], 4105 => [:B1152000], 101 => [:ENETUNREACH, :_SC_CHAR_BIT, :SYS_nanosleep], 21535 => [:TIOCSSERIAL], 16777216 => [:WNOWAIT, :CLONE_CHILD_SETTID], 1129 => [:_CS_POSIX_V6_LPBIG_OFFBIG_LDFLAGS], 105 => [:ENOBUFS, :_SC_INT_MIN, :SYS_init_module], 223 => [:SYS_fadvise64], 21533 => [:TIOCCONS], 285 => [:SOL_MCTP, :SYS_copy_file_range], 35201 => [:SIOCDELDLCI], 17 => [:EEXIST, :CSTART, :_PC_REC_XFER_ALIGN, :_SC_MEMLOCK, :PF_PACKET, :AF_PACKET, :SO_PEERCRED, :SIGCHLD, :SIGCLD, :SYS_getcwd], 271 => [:SOL_TIPC, :SYS_process_vm_writev], 4104 => [:B1000000], 35089 => [:SIOCSIFLINK], 426 => [:SYS_io_uring_enter], 35137 => [:SIOCSIFBR], 166 => [:_SC_USER_GROUPS, :SYS_umask], 89 => [:EDESTADDRREQ, :_SC_XOPEN_VERSION, :SYS_acct], 21587 => [:TIOCSERCONFIG], 198 => [:_SC_LEVEL4_CACHE_ASSOC, :SYS_socket], 80 => [:ELIBBAD, :_SC_THREAD_PRIO_INHERIT, :ELF_PRARGSZ, :SYS_fstat], 214 => [:SYS_brk], 51 => [:EL2HLT, :_SC_2_SW_DEV, :SO_ATTACH_REUSEPORT_CBPF, :SYS_chroot], 21525 => [:TIOCMGET], 274 => [:SOL_BLUETOOTH, :SYS_sched_setattr], 21517 => [:TIOCNXCL], 246 => [:_SC_XOPEN_STREAMS], 1031 => [:F_SETPIPE_SZ], 143 => [:_SC_FD_MGMT, :SYS_setregid], 35077 => [:SIOCATMARK], 48 => [:ELNRNG, :CSIZE, :CS8, :_SC_2_C_DEV, :SO_BPF_EXTENSIONS, :SYS_faccessat], 15 => [:ENOTBLK, :N_HCI, :CDISCARD, :CFLUSH, :VLNEXT, :B38400, :EXTB, :F_SETOWN_EX, :_PC_REC_MAX_XFER_SIZE, :_SC_FSYNC, :PF_KEY, :AF_KEY, :SO_REUSEPORT, :SIGTERM, :FPE_CONDTRAP, :SYS_lremovexattr], 35109 => [:SIOCGIFENCAP], 35312 => [:SIOCDEVPRIVATE], 97 => [:EAFNOSUPPORT, :_SC_2_UPE, :SYS_unshare], 262144 => [:CLONE_SYSVSEM, :O_NOATIME, :MSG_BATCH], 1035 => [:F_GET_RW_HINT], 4210688 => [:O_TMPFILE], 1120 => [:_CS_POSIX_V6_ILP32_OFFBIG_CFLAGS], 284 => [:SOL_MPTCP, :SYS_mlock2], 134 => [:_SC_BASE, :SYS_rt_sigaction], 35138 => [:SIOCGIFTXQLEN], 35099 => [:SIOCGIFNETMASK], 35095 => [:SIOCGIFDSTADDR], 110 => [:ETIMEDOUT, :_SC_SSIZE_MAX, :SYS_timer_settime], 21554 => [:TCGETX], 1118 => [:_CS_POSIX_V6_ILP32_OFF32_LIBS], 21597 => [:TIOCGICOUNT], 30 => [:EROFS, :_SC_PAGESIZE, :PF_TIPC, :AF_TIPC, :SO_ACCEPTCONN, :SIGPWR, :SYS_ioprio_set], 1100 => [:_CS_XBS5_ILP32_OFF32_CFLAGS], 35110 => [:SIOCSIFENCAP], 6 => [:ENXIO, :SCHED_DEADLINE, :CLOCK_MONOTONIC_COARSE, :N_X25, :VMIN, :B200, :F_SETLK64, :F_SETLK, :_PC_CHOWN_RESTRICTED, :_SC_TZNAME_MAX, :PF_NETROM, :AF_NETROM, :SO_BROADCAST, :IFHWADDRLEN, :SOCK_DCCP, :SIGABRT, :SIGIOT, :ILL_PRVREG, :FPE_FLTRES, :SEGV_ADIDERR, :CLD_CONTINUED, :POLL_HUP, :SYS_lsetxattr], 134217728 => [:CLONE_NEWIPC, :SA_ONSTACK, :SA_STACK], 1440 => [:TTYDEF_CFLAG], 1106 => [:_CS_XBS5_ILP32_OFFBIG_LIBS], 219 => [:SYS_keyctl], 234 => [:SYS_remap_file_pages], 272 => [:SOL_RXRPC, :SYS_kcmp], 182 => [:_SC_TRACE_EVENT_FILTER, :SYS_mq_timedsend], 164 => [:_SC_TIMEOUTS, :SYS_setrlimit], 153 => [:_SC_READER_WRITER_LOCKS, :SYS_times], 186 => [:_SC_LEVEL1_ICACHE_ASSOC, :SYS_msgget], 64 => [:ENONET, :LONG_WIDTH, :ULONG_WIDTH, :LLONG_WIDTH, :ULLONG_WIDTH, :HOST_NAME_MAX, :LONG_BIT, :NFDBITS, :STA_UNSYNC, :TIOCPKT_IOCTL, :TIOCM_CAR, :TIOCM_CD, :INLCR, :OFILL, :CSTOPB, :ECHONL, :O_CREAT, :LOCK_READ, :FALLOC_FL_UNSHARE_RANGE, :S_IXUSR, :POLLRDNORM, :INT64_WIDTH, :UINT64_WIDTH, :INT_LEAST64_WIDTH, :UINT_LEAST64_WIDTH, :INT_FAST16_WIDTH, :UINT_FAST16_WIDTH, :INT_FAST32_WIDTH, :UINT_FAST32_WIDTH, :INT_FAST64_WIDTH, :UINT_FAST64_WIDTH, :INTPTR_WIDTH, :UINTPTR_WIDTH, :INTMAX_WIDTH, :UINTMAX_WIDTH, :PTRDIFF_WIDTH, :SIZE_WIDTH, :EPOLLRDNORM, :_SC_PII_OSI_CLTS, :S_IEXEC, :STATX_MTIME, :STATX_ATTR_NODUMP, :SO_TIMESTAMPNS_NEW, :MSG_DONTWAIT, :IFF_RUNNING, :SIGRTMAX, :SYS_write, :POSIX_SPAWN_USEVFORK], 21555 => [:TCSETX], 1125 => [:_CS_POSIX_V6_LP64_OFF64_LDFLAGS], 1038 => [:F_SET_FILE_RW_HINT], 267 => [:SOL_NETBEUI, :SYS_syncfs], 90 => [:EMSGSIZE, :_SC_XOPEN_XCU_VERSION, :SYS_capget], 2048 => [:BC_DIM_MAX, :LINE_MAX, :CHARCLASS_NAME_MAX, :NL_LANGMAX, :CLONE_SIGHAND, :STA_PPSERROR, :IXANY, :ECHOKE, :TAB1, :CLOCAL, :O_NONBLOCK, :O_NDELAY, :FNONBLOCK, :FNDELAY, :AT_NO_AUTOMOUNT, :S_ISUID, :STATX_BTIME, :STATX_ATTR_ENCRYPTED, :SOCK_NONBLOCK, :MSG_CONFIRM, :IFF_SLAVE], 139 => [:_SC_THREAD_CPUTIME, :SYS_rt_sigreturn], 21591 => [:TIOCSLCKTRMIOS], 4 => [:EINTR, :SEEK_HOLE, :RENAME_WHITEOUT, :PTHREAD_DESTRUCTOR_ITERATIONS, :WEXITED, :SCHED_ISO, :CLOCK_MONOTONIC_RAW, :ADJ_MAXERROR, :MOD_MAXERROR, :STA_PPSTIME, :TIOCPKT_STOP, :TIOCM_RTS, :N_STRIP, :ONLCR, :CEOF, :CEOT, :VEOF, :IGNPAR, :B134, :XCASE, :F_SETFL, :F_EXLCK, :LOCK_NB, :DN_CREATE, :F_SEAL_GROW, :RWH_WRITE_LIFE_LONG, :POSIX_FADV_DONTNEED, :SYNC_FILE_RANGE_WAIT_AFTER, :SPLICE_F_MORE, :FALLOC_FL_NO_HIDE_STALE, :S_IROTH, :R_OK, :POLLOUT, :EPOLLOUT, :CLOSE_RANGE_CLOEXEC, :_PC_PATH_MAX, :_SC_OPEN_MAX, :_CS_V5_WIDTH_RESTRICTED_ENVS, :STATX_NLINK, :STATX_ATTR_COMPRESSED, :PF_IPX, :AF_IPX, :SO_ERROR, :SOCK_RDM, :MSG_DONTROUTE, :MSG_TRYHARD, :IFF_DEBUG, :SIGILL, :SA_SIGINFO, :ILL_ILLTRP, :FPE_FLTOVF, :SEGV_PKUERR, :BUS_MCEERR_AR, :TRAP_HWBKPT, :CLD_TRAPPED, :POLL_ERR, :SIGEV_THREAD_ID, :SYS_io_getevents, :POSIX_SPAWN_SETSIGDEF], 13 => [:EACCES, :N_HDLC, :B9600, :TTYDEF_SPEED, :VDISCARD, :_PC_FILESIZEBITS, :_SC_PRIORITIZED_IO, :PF_NETBEUI, :AF_NETBEUI, :SO_LINGER, :SIGPIPE, :SYS_flistxattr], 35169 => [:SIOCGRARP], 1126 => [:_CS_POSIX_V6_LP64_OFF64_LIBS], 104 => [:ECONNRESET, :_SC_INT_MAX, :SYS_kexec_load], 1116 => [:_CS_POSIX_V6_ILP32_OFF32_CFLAGS], 35073 => [:FIOSETOWN], 24576 => [:AT_STATX_SYNC_TYPE, :S_IFBLK], 52 => [:EBADE, :_SC_2_LOCALEDEF, :SO_ATTACH_REUSEPORT_EBPF, :SYS_fchmod], 35106 => [:SIOCSIFMTU], 179 => [:_SC_V6_LPBIG_OFFBIG, :SYS_sysinfo], 21522 => [:TIOCSTI], 43 => [:EIDRM, :_SC_LINE_MAX, :PF_SMC, :AF_SMC, :SO_NOFCS, :SYS_statfs], 11 => [:EAGAIN, :EWOULDBLOCK, :CLOCK_TAI, :N_IRDA, :VEOL, :B2400, :F_GETSIG, :_PC_PRIO_IO, :_SC_TIMERS, :PF_ROSE, :AF_ROSE, :SO_NO_CHECK, :SIGSEGV, :SYS_listxattr], 69 => [:ESRMNT, :_SC_GETGR_R_SIZE_MAX, :SO_PREFER_BUSY_POLL, :SYS_preadv], 35296 => [:SIOCPROTOPRIVATE], 171 => [:_SC_2_PBS_MESSAGE, :SYS_adjtimex], 1074025521 => [:TIOCSPTLCK], 85 => [:ERESTART, :_SC_PHYS_PAGES, :SYS_timerfd_create], 119 => [:ENAVAIL, :_SC_NL_ARGMAX, :SYS_sched_setscheduler], 21593 => [:TIOCSERGETLSR], 39 => [:ENOTEMPTY, :_SC_BC_STRING_MAX, :PF_NFC, :AF_NFC, :SO_DOMAIN, :SYS_umount2], 216 => [:SYS_mremap], 21515 => [:TCFLSH], 126 => [:ENOKEY, :_SC_XBS5_ILP32_OFFBIG, :SYS_sched_get_priority_min], 108 => [:ESHUTDOWN, :_SC_MB_LEN_MAX, :SYS_timer_gettime], 35120 => [:SIOCSIFSLAVE], 2147767360 => [:TIOCGEXCL], 1114 => [:_CS_XBS5_LPBIG_OFFBIG_LIBS], 441 => [:SYS_epoll_pwait2], 156 => [:_SC_REGEX_VERSION, :SYS_getsid], 21519 => [:TIOCGPGRP], 21544 => [:TIOCCBRK], 439 => [:SYS_faccessat2], 443 => [:SYS_quotactl_fd], 2 => [:ENOENT, :SEEK_END, :RENAME_EXCHANGE, :WUNTRACED, :WSTOPPED, :SCHED_RR, :CLOCK_PROCESS_CPUTIME_ID, :ADJ_FREQUENCY, :MOD_FREQUENCY, :STA_PPSFREQ, :PTHREAD_MUTEX_ERRORCHECK_NP, :PTHREAD_MUTEX_ERRORCHECK, :PTHREAD_PRIO_PROTECT, :PTHREAD_RWLOCK_PREFER_WRITER_NONRECURSIVE_NP, :TIOCPKT_FLUSHWRITE, :TIOCM_DTR, :N_MOUSE, :BRKINT, :ICANON, :VERASE, :OLCUC, :B75, :TCIOFF, :TCIOFLUSH, :TCSAFLUSH, :O_RDWR, :F_SETFD, :F_UNLCK, :LOCK_EX, :DN_MODIFY, :F_SEAL_SHRINK, :RWH_WRITE_LIFE_SHORT, :POSIX_FADV_SEQUENTIAL, :SYNC_FILE_RANGE_WRITE, :SPLICE_F_NONBLOCK, :FALLOC_FL_PUNCH_HOLE, :S_IWOTH, :W_OK, :F_TLOCK, :F_OWNER_PGRP, :F_OWNER_GID, :POLLPRI, :EPOLL_CTL_DEL, :EPOLLPRI, :STDERR_FILENO, :L_XTND, :CLOSE_RANGE_UNSHARE, :_PC_MAX_INPUT, :_SC_CLK_TCK, :_CS_GNU_LIBC_VERSION, :STATX_MODE, :PF_INET, :AF_INET, :SO_REUSEADDR, :SOCK_DGRAM, :MSG_PEEK, :SCM_CREDENTIALS, :SHUT_RDWR, :IFF_BROADCAST, :SIGINT, :SA_NOCLDWAIT, :SIG_SETMASK, :ILL_ILLOPN, :FPE_INTOVF, :SEGV_ACCERR, :BUS_ADRERR, :TRAP_TRACE, :CLD_KILLED, :POLL_OUT, :SIGEV_THREAD, :ITIMER_PROF, :SS_DISABLE, :P_PGID, :SYS_io_submit, :POSIX_SPAWN_SETPGROUP], 10 => [:ECHILD, :N_PROFIBUS_FDL, :VSUSP, :B1800, :F_SETSIG, :_PC_ASYNC_IO, :_SC_PRIORITY_SCHEDULING, :PF_INET6, :AF_INET6, :SO_OOBINLINE, :SOCK_PACKET, :SIGUSR1, :SYS_fgetxattr], 27 => [:EFBIG, :_SC_MQ_OPEN_MAX, :PF_IB, :AF_IB, :SO_DETACH_FILTER, :SO_DETACH_BPF, :SIGPROF, :SYS_inotify_add_watch], 124 => [:EMEDIUMTYPE, :_SC_NL_TEXTMAX, :SYS_sched_yield], 1134 => [:_CS_POSIX_V7_ILP32_OFF32_LIBS], 261 => [:SOL_DECNET, :SYS_prlimit64], 1163416577 => [:EXTRA_MAGIC], 144 => [:_SC_FIFO, :SYS_setgid], 273 => [:SOL_PPPOL2TP, :SYS_finit_module], 200 => [:SYS_bind], 35097 => [:SIOCGIFBRDADDR], 20 => [:ENOTDIR, :L_tmpnam, :AIO_PRIO_DELTA_MAX, :NZERO, :_PC_2_SYMLINKS, :_SC_MESSAGE_PASSING, :PF_ATMSVC, :AF_ATMSVC, :SO_RCVTIMEO_OLD, :SO_RCVTIMEO, :SIGTSTP, :SYS_epoll_create1], 81 => [:ELIBSCN, :_SC_THREAD_PRIO_PROTECT, :SYS_sync], 1136 => [:_CS_POSIX_V7_ILP32_OFFBIG_CFLAGS], 290 => [:SYS_pkey_free], 20480 => [:MINSIGSTKSZ, :SIGSTKSZ], 6144 => [:XTABS, :TABDLY, :TAB3], 0 => [:NULL, :SEEK_SET, :CHAR_MIN, :EXIT_SUCCESS, :SCHED_OTHER, :CLOCK_REALTIME, :PTHREAD_ONCE_INIT, :PTHREAD_CREATE_JOINABLE, :PTHREAD_MUTEX_TIMED_NP, :PTHREAD_MUTEX_NORMAL, :PTHREAD_MUTEX_DEFAULT, :PTHREAD_MUTEX_FAST_NP, :PTHREAD_MUTEX_STALLED, :PTHREAD_MUTEX_STALLED_NP, :PTHREAD_PRIO_NONE, :PTHREAD_RWLOCK_PREFER_READER_NP, :PTHREAD_RWLOCK_DEFAULT_NP, :PTHREAD_INHERIT_SCHED, :PTHREAD_SCOPE_SYSTEM, :PTHREAD_PROCESS_PRIVATE, :PTHREAD_CANCEL_ENABLE, :PTHREAD_CANCEL_DEFERRED, :TIOCPKT_DATA, :N_TTY, :CTIME, :VINTR, :NL0, :CR0, :TAB0, :BS0, :FF0, :VT0, :B0, :CS5, :TCOOFF, :TCIFLUSH, :TCSANOW, :O_RDONLY, :O_LARGEFILE, :F_DUPFD, :F_RDLCK, :RWH_WRITE_LIFE_NOT_SET, :RWF_WRITE_LIFE_NOT_SET, :POSIX_FADV_NORMAL, :AT_STATX_SYNC_AS_STAT, :F_OK, :F_ULOCK, :F_OWNER_TID, :WCHAR_MIN, :WINT_MIN, :STDIN_FILENO, :L_SET, :_PC_LINK_MAX, :_SC_ARG_MAX, :_CS_PATH, :PF_UNSPEC, :AF_UNSPEC, :SHUT_RD, :SIG_BLOCK, :SI_USER, :SIGEV_SIGNAL, :ITIMER_REAL, :WAIT_MYPGRP, :P_ALL, :SYS_io_setup], 187 => [:_SC_LEVEL1_ICACHE_LINESIZE, :SYS_msgctl], 21510 => [:TCSETA], 1101 => [:_CS_XBS5_ILP32_OFF32_LDFLAGS], 213 => [:SYS_readahead], 1110 => [:_CS_XBS5_LP64_OFF64_LIBS], 9 => [:EBADF, :L_ctermid, :L_cuserid, :CLOCK_BOOTTIME_ALARM, :N_R3964, :VSTOP, :B1200, :F_GETOWN, :_PC_SYNC_IO, :_SC_REALTIME_SIGNALS, :PF_X25, :AF_X25, :SO_KEEPALIVE, :SIGKILL, :ILL_BADIADDR, :SEGV_MTESERR, :SYS_lgetxattr], 189 => [:_SC_LEVEL1_DCACHE_ASSOC, :SYS_msgsnd], 1003 => [:_CS_LFS_LINTFLAGS], 294 => [:SYS_kexec_file_load], 512 => [:CLONE_FS, :STA_PPSJITTER, :ECHOCTL, :IUCLC, :CR1, :PARODD, :O_TRUNC, :AT_REMOVEDIR, :AT_EACCESS, :S_ISVTX, :POLLWRBAND, :EPOLLWRBAND, :S_BLKSIZE, :STATX_SIZE, :MSG_FIN, :IFF_ALLMULTI, :SVE_VQ_MAX], 227 => [:SYS_msync], 109 => [:ETOOMANYREFS, :_SC_NZERO, :SYS_timer_getoverrun], 21541 => [:TCSBRKP], 161 => [:_SC_THREAD_SPORADIC_SERVER, :SYS_sethostname], 1103 => [:_CS_XBS5_ILP32_OFF32_LINTFLAGS], 445 => [:SYS_landlock_add_rule], 32769 => [:ADJ_OFFSET_SINGLESHOT, :MOD_CLKA], 35100 => [:SIOCSIFNETMASK], 249 => [:_SC_MINSIGSTKSZ], 21518 => [:TIOCSCTTY], 241 => [:_SC_SS_REPL_MAX, :SYS_perf_event_open], 1145 => [:_CS_POSIX_V7_LPBIG_OFFBIG_LDFLAGS], 88 => [:ENOTSOCK, :_SC_PASS_MAX, :SYS_utimensat], 209 => [:SYS_getsockopt], 236 => [:_SC_RAW_SOCKETS, :SYS_get_mempolicy], 120 => [:EISNAM, :_SC_NL_LANGMAX, :SYS_sched_getscheduler], 35078 => [:SIOCGSTAMP_OLD], 8388608 => [:CLONE_UNTRACED], 21526 => [:TIOCMBIS], 1141 => [:_CS_POSIX_V7_LP64_OFF64_LDFLAGS], 260 => [:SYS_wait4], 21536 => [:TIOCPKT], 24 => [:EMFILE, :_SC_AIO_MAX, :PF_PPPOX, :AF_PPPOX, :SO_SECURITY_ENCRYPTION_NETWORK, :SIGXCPU, :SYS_dup3], -6 => [:SI_TKILL], 8 => [:ENOEXEC, :CHAR_BIT, :CHAR_WIDTH, :SCHAR_WIDTH, :UCHAR_WIDTH, :WCONTINUED, :CLOCK_REALTIME_ALARM, :ADJ_ESTERROR, :MOD_ESTERROR, :STA_FLL, :TIOCPKT_START, :NCC, :TIOCM_ST, :N_MASC, :ECHO, :VSTART, :PARMRK, :OCRNL, :B600, :F_SETOWN, :F_SHLCK, :LOCK_UN, :DN_DELETE, :F_SEAL_WRITE, :SPLICE_F_GIFT, :FALLOC_FL_COLLAPSE_RANGE, :S_IXGRP, :POLLERR, :INT8_WIDTH, :UINT8_WIDTH, :INT_LEAST8_WIDTH, :UINT_LEAST8_WIDTH, :INT_FAST8_WIDTH, :UINT_FAST8_WIDTH, :EPOLLERR, :_PC_VDISABLE, :_SC_SAVED_IDS, :STATX_UID, :PF_ATMPVC, :AF_ATMPVC, :SO_RCVBUF, :MSG_CTRUNC, :IFF_LOOPBACK, :SIGFPE, :ILL_BADSTK, :FPE_FLTSUB, :SEGV_MTEAERR, :SYS_getxattr, :POSIX_SPAWN_SETSIGMASK], 37 => [:ENOLCK, :F_OFD_SETLK, :_SC_BC_DIM_MAX, :PF_CAIF, :AF_CAIF, :SO_TIMESTAMPING_OLD, :SO_TIMESTAMPING, :SCM_TIMESTAMPING, :SYS_linkat], 35168 => [:SIOCDRARP], 35075 => [:FIOGETOWN], 83 => [:ELIBEXEC, :_SC_NPROCESSORS_CONF, :SYS_fdatasync], 21534 => [:TIOCGSERIAL], 1137 => [:_CS_POSIX_V7_ILP32_OFFBIG_LDFLAGS], 21511 => [:TCSETAW], 190 => [:_SC_LEVEL1_DCACHE_LINESIZE, :SYS_semget], 201 => [:SYS_listen], 99 => [:EADDRNOTAVAIL, :BC_BASE_MAX, :BC_SCALE_MAX, :_SC_XOPEN_XPG3, :SYS_set_robust_list], 121 => [:EREMOTEIO, :_SC_NL_MSGMAX, :SYS_sched_getparam], 281 => [:SOL_KCM, :SYS_execveat], 14 => [:EFAULT, :N_SYNC_PPP, :VWERASE, :B19200, :EXTA, :_PC_REC_INCR_XFER_SIZE, :_SC_SYNCHRONIZED_IO, :PF_SECURITY, :AF_SECURITY, :SO_BSDCOMPAT, :SIGALRM, :FPE_FLTUNK, :SYS_removexattr], 21524 => [:TIOCSWINSZ], 4110 => [:B3500000], 433 => [:SYS_fspick], 1005 => [:_CS_LFS64_LDFLAGS], 35170 => [:SIOCSRARP], 447 => [:SYS_memfd_secret], 1073741822 => [:UTIME_OMIT], 4095 => [:ALLPERMS, :STATX_ALL], 174 => [:_SC_STREAMS, :SYS_getuid], 21600 => [:FIOQSIZE], 1030 => [:F_DUPFD_CLOEXEC], 21513 => [:TCSBRK], 131072 => [:PTHREAD_STACK_MIN, :CLONE_NEWNS], 4106 => [:B1500000], 269 => [:SOL_DCCP, :SYS_sendmmsg], 1234 => [:LITTLE_ENDIAN, :BYTE_ORDER], 123 => [:ENOMEDIUM, :_SC_NL_SETMAX, :SYS_sched_getaffinity], 1104 => [:_CS_XBS5_ILP32_OFFBIG_CFLAGS], 21514 => [:TCXONC], 1163088385 => [:ESR_MAGIC], 67108864 => [:CLONE_NEWUTS, :MSG_ZEROCOPY], 268 => [:SOL_LLC, :SYS_setns], 21550 => [:TIOCGRS485], 21596 => [:TIOCMIWAIT], 32 => [:EPIPE, :INT_WIDTH, :UINT_WIDTH, :RTSIG_MAX, :TTY_NAME_MAX, :EXPR_NEST_MAX, :WORD_BIT, :ADJ_TIMECONST, :MOD_TIMECONST, :STA_DEL, :TIOCPKT_DOSTOP, :TIOCM_CTS, :ISTRIP, :CS7, :NCCS, :ONLRET, :ECHOK, :LOCK_MAND, :DN_ATTRIB, :FALLOC_FL_INSERT_RANGE, :S_IRGRP, :POLLNVAL, :INT32_WIDTH, :UINT32_WIDTH, :INT_LEAST32_WIDTH, :UINT_LEAST32_WIDTH, :SIG_ATOMIC_WIDTH, :WCHAR_WIDTH, :WINT_WIDTH, :_SC_SEM_NSEMS_MAX, :STATX_ATIME, :STATX_ATTR_APPEND, :PF_IUCV, :AF_IUCV, :SO_SNDBUFFORCE, :MSG_TRUNC, :IFF_NOTRAILERS, :SVE_NUM_ZREGS, :SYS_flock, :POSIX_SPAWN_SETSCHEDULER], 1124 => [:_CS_POSIX_V6_LP64_OFF64_CFLAGS], 197 => [:_SC_LEVEL4_CACHE_SIZE, :SYS_shmdt], 35127 => [:SIOCSIFHWBROADCAST], 1121 => [:_CS_POSIX_V6_ILP32_OFFBIG_LDFLAGS], 233 => [:SYS_madvise], 196 => [:_SC_LEVEL3_CACHE_LINESIZE, :SYS_shmat], 21507 => [:TCSETSW], 4108 => [:B2500000], 262 => [:SOL_X25, :SYS_fanotify_init], 21595 => [:TIOCSERSETMULTI], 21528 => [:TIOCMSET], 4097 => [:B57600], 35079 => [:SIOCGSTAMPNS_OLD], 210 => [:SYS_shutdown], 151 => [:_SC_SINGLE_PROCESS, :SYS_setfsuid], 35074 => [:SIOCSPGRP], 35085 => [:SIOCRTMSG], 1025 => [:F_GETLEASE], 239 => [:_SC_V7_LP64_OFF64, :SYS_move_pages], -7 => [:SI_DETHREAD], 21540 => [:TIOCGETD], 21516 => [:TIOCEXCL], 4099 => [:B230400], 54 => [:EXFULL, :_SC_PII_XTI, :SCM_TIMESTAMPING_OPT_STATS, :SYS_fchownat], 63 => [:ENOSR, :_SC_PII_OSI_COTS, :SO_TIMESTAMP_NEW, :SYS_read], 191 => [:_SC_LEVEL2_CACHE_SIZE, :SYS_semctl], 35098 => [:SIOCSIFBRDADDR], 2147767344 => [:TIOCGPTN], 91 => [:EPROTOTYPE, :_SC_XOPEN_UNIX, :SYS_capset], 62 => [:ETIME, :_SC_PII_INTERNET_DGRAM, :SO_BINDTOIFINDEX, :SYS_lseek], 21523 => [:TIOCGWINSZ], 244 => [:_SC_TRACE_SYS_MAX], 21585 => [:FIOCLEX], 1112 => [:_CS_XBS5_LPBIG_OFFBIG_CFLAGS], 150 => [:_SC_MULTI_PROCESS, :SYS_getresgid], 205 => [:SYS_getpeername], 122 => [:EDQUOT, :_SC_NL_NMAX, :SYS_sched_setaffinity], 1133 => [:_CS_POSIX_V7_ILP32_OFF32_LDFLAGS], 58 => [:_SC_POLL, :SCM_TIMESTAMPING_PKTINFO, :SYS_vhangup], 21586 => [:FIOASYNC], 199 => [:_SC_LEVEL4_CACHE_LINESIZE, :SYS_socketpair], 434 => [:SYS_pidfd_open], 21539 => [:TIOCSETD], 173 => [:_SC_SYMLOOP_MAX, :SYS_getppid], 21556 => [:TCSETXF], 256 => [:LOGIN_NAME_MAX, :CLONE_VM, :ADJ_SETOFFSET, :STA_PPSSIGNAL, :TIOCM_DSR, :ICRNL, :PARENB, :NLDLY, :NL1, :TOSTOP, :O_NOCTTY, :AT_SYMLINK_NOFOLLOW, :S_IRUSR, :POLLWRNORM, :EPOLLWRNORM, :S_IREAD, :STATX_INO, :MSG_WAITALL, :IFF_PROMISC], 35105 => [:SIOCGIFMTU], 188 => [:_SC_LEVEL1_DCACHE_SIZE, :SYS_msgrcv], 277 => [:SOL_IUCV, :SYS_seccomp], 1149 => [:_CS_V7_ENV], 21557 => [:TCSETXW], 98 => [:EADDRINUSE, :_SC_XOPEN_XPG2, :SYS_futex], 235 => [:_SC_IPV6, :SYS_mbind], 204 => [:SYS_getsockname], 4194304 => [:CLONE_DETACHED], 35088 => [:SIOCGIFNAME], 21508 => [:TCSETSF], 21520 => [:TIOCSPGRP], 76 => [:ENOTUNIQ, :_SC_THREAD_THREADS_MAX, :SYS_splice], 35128 => [:SIOCGIFCOUNT], 34 => [:ERANGE, :_SC_SIGQUEUE_MAX, :PF_ISDN, :AF_ISDN, :SO_PASSSEC, :SIGRTMIN, :SYS_mkdirat], 50 => [:ENOCSI, :_SC_2_FORT_RUN, :SO_ATTACH_BPF, :SYS_fchdir], 243 => [:_SC_TRACE_NAME_MAX, :SYS_recvmmsg], 65536 => [:NGROUPS_MAX, :XATTR_SIZE_MAX, :XATTR_LIST_MAX, :CLONE_THREAD, :EXTPROC, :O_DIRECT, :MSG_WAITFORONE], 1007 => [:_CS_LFS64_LINTFLAGS], 194 => [:_SC_LEVEL3_CACHE_SIZE, :SYS_shmget], 1052672 => [:O_SYNC, :O_FSYNC, :O_RSYNC, :FFSYNC], 42 => [:ENOMSG, :_SC_EXPR_NEST_MAX, :PF_QIPCRTR, :AF_QIPCRTR, :SO_PEEK_OFF, :SYS_nfsservctl], 87 => [:EUSERS, :_SC_ATEXIT_MAX, :SYS_timerfd_gettime], 132 => [:ERFKILL, :_SC_ADVISORY_INFO, :SYS_sigaltstack], 1073676288 => [:IOCSIZE_MASK], 140 => [:_SC_DEVICE_IO, :SYS_setpriority], 167 => [:_SC_USER_GROUPS_R, :SYS_prctl], 169 => [:_SC_2_PBS_ACCOUNTING, :SYS_gettimeofday], 248 => [:_SC_THREAD_ROBUST_PRIO_PROTECT], 202 => [:SYS_accept], 33554432 => [:CLONE_NEWCGROUP], 442 => [:SYS_mount_setattr], 35092 => [:SIOCSIFFLAGS], 35096 => [:SIOCSIFDSTADDR], 180 => [:_SC_HOST_NAME_MAX, :SYS_mq_open], 255 => [:UCHAR_MAX, :CHAR_MAX, :MAX_CANON, :MAX_INPUT, :NAME_MAX, :XATTR_NAME_MAX, :COLL_WEIGHTS_MAX, :CSIGNAL, :UINT8_MAX, :UINT_LEAST8_MAX, :UINT_FAST8_MAX, :SOL_RAW], 35121 => [:SIOCADDMULTI], 160 => [:_SC_SPORADIC_SERVER, :SYS_uname], 289 => [:SYS_pkey_alloc], 49 => [:EUNATCH, :_SC_2_FORT_DEV, :SO_INCOMING_CPU, :SYS_chdir], 3412 => [:PDP_ENDIAN], 291 => [:SYS_statx], -1 => [:SI_QUEUE, :WAIT_ANY], 35155 => [:SIOCDARP], 106 => [:EISCONN, :_SC_LONG_BIT, :SYS_delete_module], 94 => [:ESOCKTNOSUPPORT, :_SC_XOPEN_SHM, :SYS_exit_group], 2047 => [:STATX_BASIC_STATS], 428 => [:SYS_open_tree], 1032 => [:F_GETPIPE_SZ], 102 => [:ENETRESET, :_SC_CHAR_MAX, :SYS_getitimer], 128 => [:EKEYREVOKED, :CLONE_NEWTIME, :ADJ_TAI, :MOD_TAI, :STA_FREQHOLD, :TIOCM_RNG, :TIOCM_RI, :CREAD, :IGNCR, :OFDEL, :NOFLSH, :O_EXCL, :LOCK_WRITE, :MAX_HANDLE_SZ, :S_IWUSR, :POLLRDBAND, :EPOLLRDBAND, :_SC_XBS5_LPBIG_OFFBIG, :S_IWRITE, :STATX_CTIME, :MSG_EOR, :IFF_NOARP, :SI_KERNEL, :WCOREFLAG, :SYS_restart_syscall, :POSIX_SPAWN_SETSID], 32768 => [:MQ_PRIO_MAX, :CLONE_PARENT, :STA_CLK, :IEXTEN, :FFDLY, :FF1, :O_NOFOLLOW, :AT_RECURSIVE, :S_IFREG, :MSG_MORE, :IFF_DYNAMIC], 70 => [:ECOMM, :_SC_GETPW_R_SIZE_MAX, :SO_BUSY_POLL_BUDGET, :SYS_pwritev], 2097152 => [:CLONE_CHILD_CLEARTID, :O_PATH, :STATX_ATTR_DAX], 225 => [:SYS_swapoff], 21 => [:EISDIR, :CKILL, :_SC_SEMAPHORES, :PF_RDS, :AF_RDS, :SO_SNDTIMEO_OLD, :SO_SNDTIMEO, :SIGTTIN, :SYS_epoll_ctl], 229 => [:SYS_munlock], 38 => [:ENOSYS, :F_OFD_SETLKW, :_SC_BC_SCALE_MAX, :PF_ALG, :AF_ALG, :SO_PROTOCOL, :SYS_renameat], 163 => [:_SC_SYSTEM_DATABASE_R, :SYS_getrlimit], 440 => [:SYS_process_madvise], 131 => [:ENOTRECOVERABLE, :_SC_XOPEN_REALTIME_THREADS, :SYS_tgkill], 192 => [:LOCK_RW, :_SC_LEVEL2_CACHE_ASSOC, :SYS_semtimedop], 1143 => [:_CS_POSIX_V7_LP64_OFF64_LINTFLAGS], 1135 => [:_CS_POSIX_V7_ILP32_OFF32_LINTFLAGS], 1108 => [:_CS_XBS5_LP64_OFF64_CFLAGS], 65535 => [:USHRT_MAX, :UINT16_MAX, :UINT_LEAST16_MAX], -1073741824 => [:IOC_INOUT], 35102 => [:SIOCSIFMETRIC], -3 => [:SI_MESGQ], 221 => [:SYS_execve], 53 => [:EBADR, :_SC_PII, :SO_CNX_ADVICE, :SYS_fchmodat], 1122 => [:_CS_POSIX_V6_ILP32_OFFBIG_LIBS], 47 => [:EL3RST, :_SC_2_C_BIND, :SO_MAX_PACING_RATE, :SYS_fallocate], 175 => [:_SC_2_PBS_CHECKPOINT, :SYS_geteuid], 1073741823 => [:UTIME_NOW], 21527 => [:TIOCMBIC], 1048576 => [:CLONE_PARENT_SETTID, :STATX_ATTR_VERITY], 21543 => [:TIOCSBRK], 286 => [:SOL_SMC, :SYS_preadv2], 3 => [:ESRCH, :SEEK_DATA, :SCHED_BATCH, :CLOCK_THREAD_CPUTIME_ID, :PTHREAD_MUTEX_ADAPTIVE_NP, :N_PPP, :CINTR, :VKILL, :B110, :TCION, :O_ACCMODE, :F_GETFL, :RWH_WRITE_LIFE_MEDIUM, :POSIX_FADV_WILLNEED, :F_TEST, :EPOLL_CTL_MOD, :_PC_NAME_MAX, :_SC_NGROUPS_MAX, :_CS_GNU_LIBPTHREAD_VERSION, :PF_AX25, :AF_AX25, :SO_TYPE, :SOCK_RAW, :SIGQUIT, :ILL_ILLADR, :FPE_FLTDIV, :SEGV_BNDERR, :BUS_OBJERR, :TRAP_BRANCH, :CLD_DUMPED, :POLL_MSG, :P_PIDFD, :SYS_io_cancel], 35103 => [:SIOCGIFMEM], 96 => [:EPFNOSUPPORT, :_SC_2_C_VERSION, :SYS_set_tid_address], 178 => [:_SC_V6_LP64_OFF64, :SYS_gettid], 35076 => [:SIOCGPGRP], 149 => [:_SC_MONOTONIC_CLOCK, :SYS_setresgid], 155 => [:_SC_REGEXP, :SYS_getpgid], 181 => [:_SC_TRACE, :SYS_mq_unlink], 1148 => [:_CS_V6_ENV], 524288 => [:CLONE_SETTLS, :O_CLOEXEC, :EPOLL_CLOEXEC, :SOCK_CLOEXEC], 1398162689 => [:SVE_MAGIC], 65 => [:ENOPKG, :_SC_PII_OSI_M, :SO_TIMESTAMPING_NEW, :NSIG, :SYS_readv], 21506 => [:TCSETS], 65280 => [:STA_RONLY], 446 => [:SYS_landlock_restrict_self], 293 => [:SYS_rseq], 35083 => [:SIOCADDRT], 1115 => [:_CS_XBS5_LPBIG_OFFBIG_LINTFLAGS])

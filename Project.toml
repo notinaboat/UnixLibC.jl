@@ -1,4 +1,4 @@
 name = "UnixLibC"
 uuid = "16dcc055-d1ce-4ed0-becf-2028a2f53a80"
-authors = ["Sam O'Connor <sam@octech.com.au>"]
-version = "0.1.0"
+authors = ["notinaboat <notinaboat@icloud.com"]
+version = "0.1.1"

@@ -13,7 +13,8 @@ using Base: @enum, @ccall, @generated, @__MODULE__,
             Dict,
             isdefined,
             signed, unsigned,
-            (!), (&), (-), (+), (*), (<<), (>>), (>), (==), (|), (~), (=>)
+            (!), (&), (-), (+), (*), (<<), (>>), (>), (==), (|), (~), (=>),
+            Libc.FILE
 
 import Core.Intrinsics.bitcast
 

@@ -1,6 +1,30 @@
 using Clang
 using Clang.Generators
 
+headers = [
+    "<errno.h>",
+    "<string.h>",
+    "<stdio.h>",
+    "<limits.h>",
+    "<stdlib.h>",
+    "<pthread.h>",
+    "<sys/ioctl.h>",
+    "<termios.h>",
+    "<fcntl.h>",
+    "<poll.h>",
+    (Sys.islinux() ? ("<sys/epoll.h>",
+                      "<gnu/libc-version.h>") : ())...,
+
+    "<unistd.h>",
+    "<sys/stat.h>",
+    "<net/if.h>",
+    "<sys/socket.h>",
+    "<signal.h>",
+    "<sys/wait.h>",
+    "<sys/syscall.h>",
+    "<spawn.h>",
+]
+
 
 """
 Return a vector of system header include paths.
@@ -50,7 +74,7 @@ function find_system_header(header)
 end
 
 
-function macro_values(headers, cflags, names)
+function macro_values(header_paths, cflags, names)
 
     result = Dict{Symbol,Expr}()
 
@@ -58,7 +82,7 @@ function macro_values(headers, cflags, names)
         cfile = joinpath(d, "tmp.c")
         delim = "aARf6F3fWe6"
         write(cfile,
-            ("#include \"$h\"\n" for h in headers)...,
+            ("#include \"$h\"\n" for h in header_paths)...,
             ("\"$delim\"\n\"$n\"\n$n\n" for n in names)...
         )
         write("cinclude_tmp.c", read(cfile, String))
@@ -142,28 +166,8 @@ end
 
 function parse_headers()
 
-    headers = map(find_system_header, [
-        "<errno.h>",
-        "<string.h>",
-        "<limits.h>",
-        "<stdlib.h>",
-        "<pthread.h>",
-        "<sys/ioctl.h>",
-        "<termios.h>",
-        "<fcntl.h>",
-        "<poll.h>",
-        (Sys.islinux() ? ("<sys/epoll.h>",
-                          "gnu/libc-version.h") : ())...,
+    header_paths = map(find_system_header, headers)
 
-        "<unistd.h>",
-        "<sys/stat.h>",
-        "<net/if.h>",
-        "<sys/socket.h>",
-        "<signal.h>",
-        "<sys/wait.h>",
-        "<sys/syscall.h>",
-        "<spawn.h>",
-    ])
     cflags = [
         ("-isystem$p" for p in system_include_path())...,
         "-D_REENTRANT",
@@ -182,7 +186,7 @@ function parse_headers()
     end
 
     global ctx
-    ctx = Generators.create_context(headers, copy(cflags),
+    ctx = Generators.create_context(header_paths, copy(cflags),
         Dict{String,Any}(
             "general" => Dict{String,Any}(
                 "is_local_header_only" => false,
@@ -220,7 +224,7 @@ function parse_headers()
 
     macro_names = [(n.id for n in simple_macros)...]
 
-    macro_exprs = macro_values(headers, cflags, macro_names)
+    macro_exprs = macro_values(header_paths, cflags, macro_names)
 
     for node in simple_macros
         if node.id in keys(macro_exprs)
