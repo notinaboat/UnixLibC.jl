@@ -1,6 +1,33 @@
 using Clang
 using Clang.Generators
 
+"""
+Depends on:
+
+ - [`Clang.jl`](https://github.com/JuliaInterop/Clang.jl) v0.18.1 for C parsing and wrapper generation.
+
+ - [`cling`](https://root.cern/cling/) v1.2 for computation of `#define` values. e.g. `brew install cling`
+
+Clang patched as follows:
+
+```patch
+diff --git a/src/generator/codegen.jl b/src/generator/codegen.jl
+index be91290..fb6f761 100644
+--- a/src/generator/codegen.jl
++++ b/src/generator/codegen.jl
+@@ -673,6 +673,10 @@ function emit!(dag::ExprDAG, node::ExprNode{<:AbstractEnumNodeType}, options::Di
+              getTypedefDeclUnderlyingType |>
+              getCanonicalType
+     end
++    if Sys.isapple() && ty isa CLElaborated
++        @error "CLElaborated?" cursor ty
++        return dag
++    end
+     ty = translate(tojulia(ty), options)
+ 
+     # there is no need to treat __attribute__ specially as we directly query the integer
+```
+"""
 headers = [
     "<errno.h>",
     "<string.h>",
