@@ -1,0 +1,28 @@
+--- generated.jl	2025-08-01 12:44:15.524580601 +1000
++++ ../src/generated.aarch64-linux-gnu.jl	2025-08-01 12:43:18.447445835 +1000
+@@ -4523,10 +4523,10 @@
+ function isfdtype(__fd, __fdtype)
+     @ccall isfdtype(__fd::Cint, __fdtype::Cint)::Cint
+ end
+-mutable struct if_nameindex
++mutable struct struct_if_nameindex
+     if_index::Cuint
+     if_name::Ptr{Cchar}
+-    if_nameindex() = new()
++    struct_if_nameindex() = new()
+ end
+ const IFF_UP::UInt32 = 0x00000001
+ const IFF_BROADCAST::UInt32 = 0x00000002
+@@ -4692,10 +4692,10 @@
+     @ccall if_indextoname(__ifindex::Cuint, __ifname::Ptr{Cchar})::Ptr{Cchar}
+ end
+ function if_nameindex()
+-    @ccall if_nameindex()::Ptr{if_nameindex}
++    @ccall if_nameindex()::Ptr{struct_if_nameindex}
+ end
+ function if_freenameindex(__ptr)
+-    @ccall if_freenameindex(__ptr::Ptr{if_nameindex})::Cvoid
++    @ccall if_freenameindex(__ptr::Ptr{struct_if_nameindex})::Cvoid
+ end
+ const __sighandler_t = Ptr{Cvoid}
+ const SIG_ERR = bitcast(Ptr{Cvoid}, UInt(0xffffffffffffffff))

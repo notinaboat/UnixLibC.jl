@@ -1,0 +1,73 @@
+--- generated.jl	2025-07-31 10:48:13
++++ ../src/generated.jl	2025-07-31 10:53:15
+@@ -2232,7 +2232,7 @@
+     unsafe_store!(getproperty(x, f), v)
+ end
+ const sig_t = Ptr{Cvoid}
+-struct sigvec
++struct struct_sigvec
+     sv_handler::Ptr{Cvoid}
+     sv_mask::Cint
+     sv_flags::Cint
+@@ -2540,22 +2540,22 @@
+ function setrlimit(arg1, arg2)
+     @ccall setrlimit(arg1::Cint, arg2::Ptr{rlimit})::Cint
+ end
+-struct wait
++struct struct_wait
+     data::NTuple{4, UInt8}
+ end
+-function Base.getproperty(x::Ptr{wait}, f::Symbol)
++function Base.getproperty(x::Ptr{struct_wait}, f::Symbol)
+     f === :w_status && return Ptr{Cint}(x + 0)
+     f === :w_T && return Ptr{var"struct (unnamed at /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/wait.h:199:2)"}(x + 0)
+     f === :w_S && return Ptr{var"struct (unnamed at /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/wait.h:217:2)"}(x + 0)
+     return getfield(x, f)
+ end
+-function Base.getproperty(x::wait, f::Symbol)
++function Base.getproperty(x::struct_wait, f::Symbol)
+     r = Ref{wait}(x)
+     ptr = Base.unsafe_convert(Ptr{wait}, r)
+     fptr = getproperty(ptr, f)
+     GC.@preserve r unsafe_load(fptr)
+ end
+-function Base.setproperty!(x::Ptr{wait}, f::Symbol, v)
++function Base.setproperty!(x::Ptr{struct_wait}, f::Symbol, v)
+     unsafe_store!(getproperty(x, f), v)
+ end
+ function wait(arg1)
+@@ -4827,7 +4827,7 @@
+     proto_remaining_count::u_int32_t
+     kev_dl_proto_data() = new()
+ end
+-mutable struct if_nameindex
++mutable struct struct_if_nameindex
+     if_index::Cuint
+     if_name::Ptr{Cchar}
+     if_nameindex() = new()
+@@ -4839,10 +4839,10 @@
+     @ccall if_indextoname(arg1::Cuint, arg2::Ptr{Cchar})::Ptr{Cchar}
+ end
+ function if_nameindex()
+-    @ccall if_nameindex()::Ptr{if_nameindex}
++    @ccall if_nameindex()::Ptr{struct_if_nameindex}
+ end
+ function if_freenameindex(arg1)
+-    @ccall if_freenameindex(arg1::Ptr{if_nameindex})::Cvoid
++    @ccall if_freenameindex(arg1::Ptr{struct_if_nameindex})::Cvoid
+ end
+ const VEOF = Cint(0)
+ const VEOL = Cint(1)
+@@ -6114,7 +6114,7 @@
+     @ccall sigsetmask(arg1::Cint)::Cint
+ end
+ function sigvec(arg1, arg2, arg3)
+-    @ccall sigvec(arg1::Cint, arg2::Ptr{sigvec}, arg3::Ptr{sigvec})::Cint
++    @ccall sigvec(arg1::Cint, arg2::Ptr{struct_sigvec}, arg3::Ptr{struct_sigvec})::Cint
+ end
+ const SYS_syscall = Cint(0)
+ const SYS_exit = Cint(1)
+@@ -8695,4 +8695,4 @@
+         end
+     end
+ end
