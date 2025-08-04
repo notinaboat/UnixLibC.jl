@@ -1,6 +1,6 @@
---- generated.jl	2025-08-01 12:44:15.524580601 +1000
-+++ ../src/generated.aarch64-linux-gnu.jl	2025-08-01 12:43:18.447445835 +1000
-@@ -4523,10 +4523,10 @@
+--- generated.jl.orig	2025-08-02 17:38:53.121451222 +1000
++++ generated.jl	2025-08-02 17:38:53.173908039 +1000
+@@ -5598,10 +5598,10 @@
  function isfdtype(__fd, __fdtype)
      @ccall isfdtype(__fd::Cint, __fdtype::Cint)::Cint
  end
@@ -13,7 +13,7 @@
  end
  const IFF_UP::UInt32 = 0x00000001
  const IFF_BROADCAST::UInt32 = 0x00000002
-@@ -4692,10 +4692,10 @@
+@@ -5767,10 +5767,10 @@
      @ccall if_indextoname(__ifindex::Cuint, __ifname::Ptr{Cchar})::Ptr{Cchar}
  end
  function if_nameindex()
@@ -24,5 +24,5 @@
 -    @ccall if_freenameindex(__ptr::Ptr{if_nameindex})::Cvoid
 +    @ccall if_freenameindex(__ptr::Ptr{struct_if_nameindex})::Cvoid
  end
- const __sighandler_t = Ptr{Cvoid}
- const SIG_ERR = bitcast(Ptr{Cvoid}, UInt(0xffffffffffffffff))
+ const WCOREFLAG = Cint(128)
+ const WAIT_ANY = Cint(-1)

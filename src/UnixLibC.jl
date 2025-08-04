@@ -20,7 +20,9 @@ import Core.Intrinsics.bitcast
 
 const NULL = 0
 
-ioctl(fd, cmd, arg) = @ccall ioctl(fd::Cint, cmd::Cint, arg::Ptr{Cint})::Cint
+ioctl(fd, cmd, arg::Ref{T}) where T =
+    @ccall ioctl(fd::Cint, cmd::Culong; arg::Ptr{T})::Cint
+
 
 
 const __builtin_va_list = nothing

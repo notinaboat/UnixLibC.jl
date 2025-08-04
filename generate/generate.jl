@@ -39,9 +39,11 @@ headers = [
     "<termios.h>",
     "<fcntl.h>",
     "<poll.h>",
+    "<signal.h>",
     (Sys.islinux() ? ("<sys/epoll.h>",
                       "<gnu/libc-version.h>") : ())...,
-
+    (Sys.isapple() ? (
+                      "<sys/disk.h>",) : ())...,
     "<unistd.h>",
     "<sys/stat.h>",
     "<net/if.h>",
@@ -62,18 +64,20 @@ function system_include_path()
         sdk = chomp(read(`xcrun --show-sdk-path`, String))
         path = [joinpath(sdk, "usr/include")]
     elseif Sys.islinux()
-        path = ["/usr/include"]
+        path = []
         try
             x = eachline(`sh -c "gcc -xc -E -v /dev/null 2>&1"`)
             line, state = iterate(x)
             while line != nothing &&
-                  line != "#include <...> search starts here:"
+                line != "#include <...> search starts here:"
                 line, state = iterate(x, state)
             end
             line, state = iterate(x, state)
             while line != nothing &&
-                  line != "End of search list."
-                push!(path, strip(line))
+                line != "End of search list."
+                if !contains(line, "(framework directory)")
+                    push!(path, strip(line))
+                end
                 line, state = iterate(x, state)
             end
         catch err
@@ -90,7 +94,7 @@ Find `header` by searching under `system_include_path()`.
 function find_system_header(header)
     header = replace(header, r"[<>]" => "")
     if !isfile(header)
-        for d in system_include_path()
+        for d in filter(x->!contains(x, "c++"), system_include_path())
             h = joinpath(d, header)
             if isfile(h)
                 return h
@@ -101,7 +105,7 @@ function find_system_header(header)
 end
 
 
-function macro_values(header_paths, cflags, names)
+function macro_values(header_paths, cflags, macro_names, struct_names)
 
     result = Dict{Symbol,Expr}()
 
@@ -110,10 +114,17 @@ function macro_values(header_paths, cflags, names)
         delim = "aARf6F3fWe6"
         write(cfile,
             ("#include \"$h\"\n" for h in header_paths)...,
-            ("\"$delim\"\n\"$n\"\n$n\n" for n in names)...
+            ("\"$delim\"\n\"$n\"\n$n\n" for n in macro_names)...,
+            ("\"$delim\"\n\"$(n)_size\"\nsizeof($n)\n" for n in struct_names)...
         )
-        write("cinclude_tmp.c", read(cfile, String))
-        cling_cflags = filter(x->!startswith(x, "-isystem"), cflags)
+        #FIXME
+#        if Sys.isapple()
+            cling_cflags = filter(x->!startswith(x, "-isystem"), cflags)
+#        else
+#            cling_cflags = cflags
+#        end
+        write("footmp.c", read(cfile))
+        
         cmd = "cling --nologo -w $(join(cling_cflags, " ")) < $cfile 2>/dev/null"
         cmd = `sh -c $cmd`
         @info cmd 
@@ -170,6 +181,11 @@ function macro_values(header_paths, cflags, names)
                     v = replace(v, r"f$" => "")
                 end
 
+                # '0x00' => 0x00
+                if t == :Cchar && startswith(v, "'")
+                    v = replace(v, "'" => "")
+                end
+
                 if expr == nothing
                     try
                         expr = Meta.parse("$t($v)")
@@ -218,7 +234,9 @@ function parse_headers()
             "general" => Dict{String,Any}(
                 "is_local_header_only" => false,
                 "auto_mutability" => true,
-                "auto_mutability_includelist" => ["termios"],
+                "auto_mutability_includelist" => ["termios", "sigaction"],
+                "auto_mutability_ignorelist" => ["posix_spawnattr_t",
+                                                 "__sigset_t"],
                 "library_name" => "",
                 "use_julia_native_enum_type" => true,
             ),
@@ -236,22 +254,37 @@ function parse_headers()
 
     build!(ctx, BUILDSTAGE_NO_PRINTING)
 
-    exclude = r"""
-        ^ (
-          errno
-          | _.*
-        ) $
-    """x
+    # Filter out symbols that break wrapper generation.
+    nodes = filter(node -> node.id ∉ [
+        :errno,             # not constant
+        :MSG_TRYHARD
+    ], ctx.dag.nodes)
 
+#        :imaxdiv,           # imaxdiv_t missing ??
+#        :wait,              # fn/struct clash
+#        :sigvec,            # "
+#        :if_nameindex,      # "
+#        :if_freenameindex,
+
+    # Filter out macros begining with underscore.
     nodes = filter(node -> ! (node isa ExprNode{Generators.MacroDefault})
-                        || ! contains(string(node.id), exclude),
-                   ctx.dag.nodes)
+                        || ! startswith(string(node.id), "_"),
+                   nodes)
+
+    structs = filter(x -> (   x isa ExprNode{Generators.StructDefinition}
+                           || x isa ExprNode{Generators.StructAnonymous})
+                          && !startswith(string(x.id), "#"), nodes)
+    struct_names = [(n.id for n in structs)...]
 
     simple_macros = filter(x -> x isa ExprNode{Generators.MacroDefault}, nodes)
 
     macro_names = [(n.id for n in simple_macros)...]
 
-    macro_exprs = macro_values(header_paths, cflags, macro_names)
+    macro_exprs = macro_values(header_paths, cflags, macro_names, struct_names)
+
+    struct_size_exprs = [:(const $n = $(macro_exprs[n]))
+                         for n in filter(x -> endswith(string(x), "_size"),
+                                         keys(macro_exprs))]
 
     for node in simple_macros
         if node.id in keys(macro_exprs)
@@ -272,29 +305,40 @@ function parse_headers()
     for node in nodes
         if node isa ExprNode{<:AbstractEnumNodeType}
             if !isempty(node.exprs)
+                sz = Clang.getSizeOf(Clang.getCursorType(node.cursor))
+                enum_type = sz == 8 ? UInt64 : UInt32
+                
                 enum_name = node.exprs[1].args[3].args[1]
                 exprs = copy(node.exprs[2:end])
                 empty!(node.exprs)
                 if !startswith(string(enum_name), "##")
-                    push!(node.exprs, :(const $enum_name = UInt32))
+                    push!(node.exprs, :(const $enum_name = $enum_type))
                 end
                 for x in exprs
                     n, v = x.args
                     if v isa Signed
-                        v = unsigned(Int32(v))
+                        v = unsigned(signed(enum_type)(v))
                     end
-                    push!(node.exprs, :(const $n::UInt32 = $v))
+                    push!(node.exprs, :(const $n::$enum_type = $v))
                 end
-                @assert Clang.getSizeOf(Clang.getCursorType(node.cursor)) == 4
             end
         end
     end
+    @info :foo
 
-    return Iterators.flatten(node.exprs for node in nodes)
+    result = []
+    append!(result, struct_size_exprs)
+    for node in nodes
+        append!(result, node.exprs)
+    end
+    @info :fooo
+
+    result
 end
 
 function generate_julia_code()
     exprs = collect(parse_headers())
+    @info :bar
     const_names = find_constants(exprs)
     write(joinpath(@__DIR__, "generated.jl"),
           join(string.(exprs), "\n"),
