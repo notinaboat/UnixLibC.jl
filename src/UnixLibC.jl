@@ -12,6 +12,7 @@ using Base: @enum, @ccall, @generated, @__MODULE__,
             Vector,
             Dict,
             isdefined,
+            unsafe_store!, getproperty,
             signed, unsigned,
             (!), (&), (-), (+), (*), (<<), (>>), (>), (==), (|), (~), (=>),
             Libc.FILE
@@ -74,8 +75,8 @@ fcntl(fd, cmd, arg) = @ccall fcntl(fd::Cint, cmd::Cint; arg::Cint)::Cint
 
 
 #syscall wrapper
-pifd_open(pid, flags) = @ccall syscall(SYS_pidfd_open::Cint,
-                                       pid::pid_t, flags::Cint)::Cint
+pidfd_open(pid, flags) = @ccall syscall(SYS_pidfd_open::Cint,
+                                        pid::pid_t, flags::Cint)::Cint
 
 # Function-like mactos not yet wrapped.
 WIFSIGNALED(x) = (((x & 0x7f) + 1) >> 1) > 0

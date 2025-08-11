@@ -6122,11 +6122,12 @@ struct posix_spawnattr_t
 end
 mutable struct __spawn_action
 end
-struct posix_spawn_file_actions_t
+mutable struct posix_spawn_file_actions_t
     __allocated::Cint
     __used::Cint
     __actions::Ptr{__spawn_action}
     __pad::NTuple{16, Cint}
+    posix_spawn_file_actions_t() = new()
 end
 function posix_spawn(__pid, __path, __file_actions, __attrp, __argv, __envp)
     @ccall posix_spawn(__pid::Ptr{pid_t}, __path::Ptr{Cchar}, __file_actions::Ptr{posix_spawn_file_actions_t}, __attrp::Ptr{posix_spawnattr_t}, __argv::Ptr{Ptr{Cchar}}, __envp::Ptr{Ptr{Cchar}})::Cint

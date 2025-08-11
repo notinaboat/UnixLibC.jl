@@ -234,7 +234,11 @@ function parse_headers()
             "general" => Dict{String,Any}(
                 "is_local_header_only" => false,
                 "auto_mutability" => true,
-                "auto_mutability_includelist" => ["termios", "sigaction"],
+                "auto_mutability_includelist" => [
+                    "termios",
+                    "sigaction",
+                    #="epoll_event",=#
+                    "posix_spawn_file_actions_t"],
                 "auto_mutability_ignorelist" => ["posix_spawnattr_t",
                                                  "__sigset_t"],
                 "library_name" => "",
